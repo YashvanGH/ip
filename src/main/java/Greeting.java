@@ -29,14 +29,18 @@ public class Greeting {
      * Lists out the current functions that can be used by the user
      */
     public void help() {
-        System.out.println("""
-                            \tHere's what I can do for now!
-                            \tadd: Happens automatically (For now!)
-                            \tlist: Displays all tasks added
-                            \tmark x: Marks task no.x 
-                            \tunmark x: Unmarks task no. x 
-                            \texit: Exits the application
-                            """);
+        System.out.println(
+                """
+                Here's what I can do for now!
+                |todo <description>: Adds a todo without a specific date/time
+                |deadline <description> /by <due date>: Adds a task with a deadline
+                |event <description> /from <start date/time> /to <end date/time>: Adds an event with a start and end time
+                |list: Displays all tasks added
+                |mark <task number>: Marks task no.x as done
+                |unmark <task number>: Unmarks task no.x
+                |exit: Exits the application
+                """
+        );
     }
 
     /**

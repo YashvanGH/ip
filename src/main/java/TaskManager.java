@@ -13,14 +13,15 @@ public class TaskManager {
      *
      * @param task The task to add to the list
      */
-    public void addTask(String description) {
-        taskList.add(new Task(description));
+    public void addTask(Task task) {
+        taskList.add(task);
 
         System.out.println(
                 "\t__________________________________________________\n"
-                        + "\t I've added this to tasks: "
-                        +  description
-                        + "\n\t Cool. Anything else?\n"
+                        + "\t I've added this to tasks: \n"
+                        + "\t  "
+                        + task
+                        + "\n\t Cool. You have " + taskList.size() + " tasks now. Anything else?\n"
                         + "\t__________________________________________________\n"
         );
     }
@@ -46,7 +47,7 @@ public class TaskManager {
     public void unmarkTask(int index) {
         if (index >= 0 && index < taskList.size()) {
             taskList.get(index).unmarkTask();
-            System.out.println("\tAn uno reverse? Task " + (index + 1) + " is unmarked!");
+            System.out.println("\tAn uno reverse? Task " + (index + 1) + " has been unmarked!");
             displayList();
         }
     }
