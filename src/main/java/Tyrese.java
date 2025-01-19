@@ -20,15 +20,18 @@ public class Tyrese {
             } else if (input.equals("list")) {
                 taskManager.displayList();
 
+            } else if (input.startsWith("mark ")) {
+                // Gets numbers after the word "mark" and converts to int
+                int indexToMark = Integer.parseInt(input.substring(5)) - 1;
+                taskManager.markTask(indexToMark);
+
+            } else if (input.startsWith("unmark ")) {
+                // Gets numbers after the word "unmark" and converts to int
+                int indexToUnmark = Integer.parseInt(input.substring(7)) - 1;
+                taskManager.unmarkTask(indexToUnmark);
+
             } else {
                 taskManager.addTask(input);
-                System.out.println(
-                        "__________________________________________________\n"
-                                + "I've added this to tasks: "
-                                + input
-                                + "\nCool. Anything else?\n"
-                                + "__________________________________________________\n"
-                );
             }
         }
 

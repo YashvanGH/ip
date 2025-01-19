@@ -1,24 +1,65 @@
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class TaskManager {
-    private String[] taskList = new String[100];
-    private int index = 0;
+    ArrayList<Task> taskList = new ArrayList<>();
 
+    /**
+     * Empty constructor to initialise instance of TaskManager Class
+     */
     public TaskManager() {}
 
-    public void addTask(String task) {
-        taskList[index++] = task;
+    /**
+     * Adds task to task list
+     *
+     * @param task The task to add to the list
+     */
+    public void addTask(String description) {
+        taskList.add(new Task(description));
+
+        System.out.println(
+                "\t__________________________________________________\n"
+                        + "\t I've added this to tasks: "
+                        +  description
+                        + "\n\t Cool. Anything else?\n"
+                        + "\t__________________________________________________\n"
+        );
     }
 
-    public void displayList() {
-        int dispIndex = 1;
-        for (String task : taskList) {
-            if (task != null) {
-                System.out.println(dispIndex + ": " + task);
-                dispIndex++;
-            }
+    /**
+     * Marks the task at the given index as done
+     *
+     * @param index The index at which the task should be marked as done
+     */
+    public void markTask(int index) {
+        if (index >= 0 && index < taskList.size()) {
+            taskList.get(index).markTask();
+            System.out.println("\tNice! I've marked task "  + (index + 1) + " as done!");
+            displayList();
         }
     }
+
+    /**
+     * Unmarks the task at the given index
+     *
+     * @param index The index at which the task should be marked as undone
+     */
+    public void unmarkTask(int index) {
+        if (index >= 0 && index < taskList.size()) {
+            taskList.get(index).unmarkTask();
+            System.out.println("\tAn uno reverse? Task " + (index + 1) + " is unmarked!");
+            displayList();
+        }
+    }
+
+    /**
+     * Display all current tasks in the list
+     */
+    public void displayList() {
+        System.out.println("\t__________________________________________________");
+        for (int i = 0; i < taskList.size(); i++) {
+            System.out.println("\t " + (i + 1) + ": " + taskList.get(i).toString());
+        }
+        System.out.println("\t__________________________________________________\n");
+    }
+
 }

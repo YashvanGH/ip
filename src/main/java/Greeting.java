@@ -30,10 +30,12 @@ public class Greeting {
      */
     public void help() {
         System.out.println("""
-                            Here's what I can do for now!
-                            add: Happens automatically (For now!)
-                            list: Displays all tasks added
-                            exit: Exits the application
+                            \tHere's what I can do for now!
+                            \tadd: Happens automatically (For now!)
+                            \tlist: Displays all tasks added
+                            \tmark x: Marks task no.x 
+                            \tunmark x: Unmarks task no. x 
+                            \texit: Exits the application
                             """);
     }
 
@@ -41,8 +43,10 @@ public class Greeting {
      * Exits the application and greets the user goodbye
      */
     public void sayGoodbye() {
-        System.out.println("__________________________________________________");
-        System.out.println("  Aight, I'll head out. Keep up with your tasks!");
-        System.out.println("__________________________________________________");
+        System.out.println(
+                "\t__________________________________________________\n"
+                + "\t  Aight, I'll head out. Keep up with your tasks!\n"
+                + "\t__________________________________________________"
+        );
     }
 }
