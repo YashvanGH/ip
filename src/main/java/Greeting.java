@@ -1,4 +1,3 @@
-import java.util.Scanner;
 public class Greeting {
 
     /**
@@ -21,35 +20,29 @@ public class Greeting {
                         "__________________________________________________\n"
                         + logo
                         + "\t\t\t   What's up? You rang?\n"
+                        + "\t    Type 'help' to see what I can do! \n"
                         + "__________________________________________________\n"
         );
     }
 
     /**
-     * Echoes user input and terminates when user is done
+     * Lists out the current functions that can be used by the user
      */
-    public void echo() {
-        Scanner s = new Scanner(System.in);
-        String echo_word = s.nextLine();
+    public void help() {
+        System.out.println("""
+                            Here's what I can do for now!
+                            add: Happens automatically (For now!)
+                            list: Displays all tasks added
+                            exit: Exits the application
+                            """);
+    }
 
-        while (!echo_word.contains("bye")) {
-
-            System.out.println(
-                    "__________________________________________________\n"
-                    + "You told me this: "
-                    + echo_word
-                    + "\nCool. Anything else?\n"
-                    + "__________________________________________________\n"
-
-
-            );
-            echo_word = s.nextLine();
-        }
-
-        System.out.println(
-                        "__________________________________________________\n"
-                        + "  Aight, I'll head out. Keep up with your tasks!\n"
-                        + "__________________________________________________"
-        );
+    /**
+     * Exits the application and greets the user goodbye
+     */
+    public void sayGoodbye() {
+        System.out.println("__________________________________________________");
+        System.out.println("  Aight, I'll head out. Keep up with your tasks!");
+        System.out.println("__________________________________________________");
     }
 }
