@@ -18,7 +18,7 @@ public class TaskManager {
 
         System.out.println(
                 "\t__________________________________________________\n"
-                        + "\t I've added this to tasks: \n"
+                        + "\t I've added this to tasks:\n"
                         + "\t  "
                         + task
                         + "\n\t Cool. You have " + taskList.size() + " tasks now. Anything else?\n"

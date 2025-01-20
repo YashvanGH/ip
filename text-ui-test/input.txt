@@ -1,0 +1,10 @@
+help
+todo Procrastinate my iP
+deadline CS2103T /by Friday 24/01/25
+event ST1131 Quiz 1 /from Monday 20/1/25 /to Sunday 26/1/25
+list
+mark 1
+mark 2
+unmark 1
+gibberish
+exit

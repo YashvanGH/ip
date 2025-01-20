@@ -1,7 +1,61 @@
-Hello from
- ____        _        
-|  _ \ _   _| | _____ 
-| | | | | | | |/ / _ \
-| |_| | |_| |   <  __/
-|____/ \__,_|_|\_\___|
+Here's what I can do for now!
+|todo <description>: Adds a todo without a specific date/time
+|deadline <description> /by <due date>: Adds a task with a deadline
+|event <description> /from <start date/time> /to <end date/time>: Adds an event with a start and end time
+|list: Displays all tasks added
+|mark <task number>: Marks task no.x as done
+|unmark <task number>: Unmarks task no.x
+|exit: Exits the application
 
+	__________________________________________________
+	 I've added this to tasks:
+	  [T][ ] Procrastinate my iP
+	 Cool. You have 1 tasks now. Anything else?
+	__________________________________________________
+
+	__________________________________________________
+	 I've added this to tasks:
+	  [D][ ] CS2103T (by: Friday 24/01/25)
+	 Cool. You have 2 tasks now. Anything else?
+	__________________________________________________
+
+	__________________________________________________
+	 I've added this to tasks:
+	  [E][ ] ST1131 Quiz 1 (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 Cool. You have 3 tasks now. Anything else?
+	__________________________________________________
+
+	__________________________________________________
+	 1: [T][ ] Procrastinate my iP
+	 2: [D][ ] CS2103T (by: Friday 24/01/25)
+	 3: [E][ ] ST1131 Quiz 1 (from: Monday 20/1/25 to: Sunday 26/1/25)
+	__________________________________________________
+
+	Nice! I've marked task 1 as done!
+	__________________________________________________
+	 1: [T][X] Procrastinate my iP
+	 2: [D][ ] CS2103T (by: Friday 24/01/25)
+	 3: [E][ ] ST1131 Quiz 1 (from: Monday 20/1/25 to: Sunday 26/1/25)
+	__________________________________________________
+
+	Nice! I've marked task 2 as done!
+	__________________________________________________
+	 1: [T][X] Procrastinate my iP
+	 2: [D][X] CS2103T (by: Friday 24/01/25)
+	 3: [E][ ] ST1131 Quiz 1 (from: Monday 20/1/25 to: Sunday 26/1/25)
+	__________________________________________________
+
+	An uno reverse? Task 1 has been unmarked!
+	__________________________________________________
+	 1: [T][ ] Procrastinate my iP
+	 2: [D][X] CS2103T (by: Friday 24/01/25)
+	 3: [E][ ] ST1131 Quiz 1 (from: Monday 20/1/25 to: Sunday 26/1/25)
+	__________________________________________________
+
+	__________________________________________________
+	 Hey! Use the commands! I'm warning you!
+	__________________________________________________
+
+	__________________________________________________
+	  Aight, I'll head out. Keep up with your tasks!
+	__________________________________________________

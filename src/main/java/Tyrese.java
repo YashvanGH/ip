@@ -1,11 +1,14 @@
 import java.util.Scanner;
-import java.util.Timer;
 public class Tyrese {
     public static void main(String[] args) {
         Greeting greeting = new Greeting();
         TaskManager taskManager = new TaskManager();
 
-        greeting.greet();
+        // To skip unicode characters for testing
+        boolean skipAscii = args.length > 0 && args[0].equals("--skip-ascii");
+        if (!skipAscii) {
+            greeting.greet();
+        }
 
         Scanner scanner = new Scanner(System.in);
         boolean isRun = true;
@@ -52,12 +55,24 @@ public class Tyrese {
 
             } else {
                 if (threat > 3) {
-                    System.out.println("That's it! Leaking personal information~");
+                    System.out.println(
+                            "\t__________________________________________________\n"
+                            + "\t That's it! Leaking personal information~\n"
+                            + "\t__________________________________________________\n"
+                    );
                 } else if (threat == 3) {
-                    System.out.println("Are you serious bruh?");
+                    System.out.println(
+                            "\t__________________________________________________\n"
+                            + "\t Are you serious bruh?\n"
+                            + "\t__________________________________________________\n"
+                    );
                     threat++;
                 } else {
-                    System.out.println("Hey! Use the commands! I'm warning you!");
+                    System.out.println(
+                            "\t__________________________________________________\n"
+                            + "\t Hey! Use the commands! I'm warning you!\n"
+                            + "\t__________________________________________________\n"
+                    );
                     threat++;
                 }
 
