@@ -49,7 +49,7 @@ public class Greeting {
     public void sayGoodbye() {
         System.out.println(
                 "\t__________________________________________________\n"
-                + "\t  Aight, I'll head out. Keep up with your tasks!\n"
+                + "\t Aight, I'll head out. Keep up with your tasks!\n"
                 + "\t__________________________________________________"
         );
     }
