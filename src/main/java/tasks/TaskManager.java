@@ -64,7 +64,7 @@ public class TaskManager {
     /**
      * Parses input and deletes a task
      *
-     * @param input       The user input in the format "delete <task_number>"
+     * @param input       The user input in the format of "delete <task_number>"
      * @param taskManager The {@link TaskManager} instance managing the tasks
      * @throws NumberFormatException If the task number is missing, empty, or invalid
      * @throws TaskException         If the task list is empty or the task number is invalid
@@ -115,7 +115,7 @@ public class TaskManager {
      * Marks the specified task as done based on the user input
      * Parses the input string to extract the task number
      *
-     * @param input       The user input in the format "mark <task_number>"
+     * @param input       The user input in the format of "mark <task_number>"
      * @param taskManager The {@link TaskManager} instance managing the tasks
      * @throws NumberFormatException If the task number is missing, empty or invalid
      * @throws MarkException         If the specified task does not exist
@@ -162,7 +162,7 @@ public class TaskManager {
      * Marks the specified task as undone based on the user input
      * Parses the input string to extract the task number
      *
-     * @param input       The user input in the format "unmark <task_number>"
+     * @param input       The user input in the format of "unmark <task_number>"
      * @param taskManager The {@link TaskManager} instance managing the tasks
      * @throws NumberFormatException If the task number is missing, empty or invalid
      * @throws MarkException         If the specified task does not exist
