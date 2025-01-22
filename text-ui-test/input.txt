@@ -6,6 +6,9 @@ mark
 unmark 1
 unmark "nan"
 unmark
+delete 1
+delete "nan"
+delete
 todo
 deadline
 event
@@ -15,7 +18,14 @@ event ST1131 Quiz 1 /from Monday 20/1/25 /to Sunday 26/1/25
 list
 mark 1
 mark 2
+mark 100
 unmark 1
 unmark 2
+unmark 100
+delete 1
+list
+delete 2
+list
+delete 100
 gibberish
 exit

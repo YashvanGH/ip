@@ -1,10 +1,16 @@
+import exceptions.MarkException;
+import exceptions.TaskException;
+import tasks.*;
+import utils.Greeting;
 import java.util.Scanner;
+
 public class Tyrese {
     public static void main(String[] args) {
         Greeting greeting = new Greeting();
         TaskManager taskManager = new TaskManager();
 
         // To skip unicode characters for testing
+        // Unicode characters show up as "?" which makes it hard for testing
         boolean skipAscii = args.length > 0 && args[0].equals("--skip-ascii");
         if (!skipAscii) {
             greeting.greet();
@@ -12,69 +18,111 @@ public class Tyrese {
 
         Scanner scanner = new Scanner(System.in);
         boolean isRun = true;
-        int threat = 0;
 
         while (isRun) {
-            String input = scanner.nextLine();
-            if (input.contains("exit")) {
+            String input = scanner.nextLine().trim();
+            if (input.equals("exit")) {
                 isRun = false;
 
             } else if (input.equals("help")) {
                 greeting.help();
 
             } else if (input.equals("list")) {
-                taskManager.displayList();
+                try {
+                    taskManager.displayList();
+                } catch (TaskException e) {
+                    System.out.println(
+                            "\t______________________________________________________________________\n"
+                                    + "\t " + e.getMessage()
+                                    + "\n\t______________________________________________________________________\n"
+                    );
+                }
 
-            } else if (input.startsWith("mark ")) {
+            } else if (input.startsWith("delete")){
+                try {
+                    TaskManager.deleteTask(input, taskManager);
+                } catch (NumberFormatException | TaskException e) {
+                    System.out.println(
+                            "\t______________________________________________________________________\n"
+                                    + "\t " + e.getMessage()
+                                    + "\n\t______________________________________________________________________\n"
+                    );
+                }
+
+            } else if (input.startsWith("mark")) {
                 // Gets numbers after the word "mark" and converts to int
-                int indexToMark = Integer.parseInt(input.substring(5)) - 1;
-                taskManager.markTask(indexToMark);
+                try {
+                    TaskManager.markTask(input, taskManager);
 
-            } else if (input.startsWith("unmark ")) {
+                } catch (NumberFormatException | MarkException | TaskException e) {
+                    System.out.println(
+                            "\t______________________________________________________________________\n"
+                                    + "\t " + e.getMessage()
+                                    + "\n\t______________________________________________________________________\n"
+                    );
+
+                }
+
+            } else if (input.startsWith("unmark")) {
                 // Gets numbers after the word "unmark" and converts to int
-                int indexToUnmark = Integer.parseInt(input.substring(7)) - 1;
-                taskManager.unmarkTask(indexToUnmark);
+                try {
+                    TaskManager.unmarkTask(input, taskManager);
 
-            } else if (input.startsWith("todo ")) {
-                String todoTask = input.substring(5);
-                taskManager.addTask(new Todo(todoTask));
+                } catch (NumberFormatException | MarkException | TaskException e) {
+                    System.out.println(
+                            "\t______________________________________________________________________\n"
+                                    + "\t " + e.getMessage()
+                                    + "\n\t______________________________________________________________________\n"
+                    );
+                }
 
-            } else if (input.startsWith("deadline ")) {
-                String[] parts = input.split(" /by ");
-                String deadlineTask = parts[0].substring(9);
-                String deadline = parts[1];
-                taskManager.addTask(new Deadlines(deadlineTask, deadline));
+            } else if (input.startsWith("todo")) {
+                try {
+                    Todo todoTask = Todo.create(input);
+                    taskManager.addTask(todoTask);
 
-            } else if (input.startsWith("event ")) {
-                String[] parts = input.split(" /from ");
-                String[] time = parts[1].split(" /to ");
-                String eventTask = parts[0].substring(6);
-                String startTime = time[0];
-                String endTime = time[1];
-                taskManager.addTask(new Events(startTime, endTime, eventTask));
+                } catch (TaskException e) {
+                    System.out.println(
+                                    "\t______________________________________________________________________\n"
+                                    + "\t " + e.getMessage()
+                                    + "\n\t______________________________________________________________________\n"
+                    );
+                }
+
+            } else if (input.startsWith("deadline")) {
+                try {
+                    Deadlines deadlineTask = Deadlines.create(input);
+                    taskManager.addTask(deadlineTask);
+
+                } catch (TaskException e) {
+                    System.out.println(
+                                    "\t______________________________________________________________________\n"
+                                    + "\t " + e.getMessage()
+                                    + "\n\t______________________________________________________________________\n"
+                    );
+                }
+
+            } else if (input.startsWith("event")) {
+                try {
+                    Events eventTask = Events.create(input);
+                    taskManager.addTask(eventTask);
+
+                } catch (TaskException e) {
+                    System.out.println(
+                                    "\t______________________________________________________________________\n"
+                                    + "\t " + e.getMessage()
+                                    + "\n\t______________________________________________________________________\n"
+                    );
+                }
 
             } else {
-                if (threat > 3) {
-                    System.out.println(
-                            "\t__________________________________________________\n"
-                            + "\t That's it! Leaking personal information~\n"
-                            + "\t__________________________________________________\n"
+                // Invalid input
+                // Doesn't make sense to throw exception for now
+                System.out.println(
+                                    "\t______________________________________________________________________\n"
+                                    + "\t Whatchu talking about bruh? Type 'help' if you need it!"
+                                    + "\n\t______________________________________________________________________\n"
                     );
-                } else if (threat == 3) {
-                    System.out.println(
-                            "\t__________________________________________________\n"
-                            + "\t Are you serious bruh?\n"
-                            + "\t__________________________________________________\n"
-                    );
-                    threat++;
-                } else {
-                    System.out.println(
-                            "\t__________________________________________________\n"
-                            + "\t Hey! Use the commands! I'm warning you!\n"
-                            + "\t__________________________________________________\n"
-                    );
-                    threat++;
-                }
 
             }
 

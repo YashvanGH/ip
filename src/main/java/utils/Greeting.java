@@ -1,7 +1,9 @@
+package utils;
+
 public class Greeting {
 
     /**
-     * Empty constructor to initialise instance of Greeting Class
+     * Empty constructor to initialise instance of utils.Greeting Class
      */
     public Greeting() {}
 
@@ -48,9 +50,9 @@ public class Greeting {
      */
     public void sayGoodbye() {
         System.out.println(
-                "\t__________________________________________________\n"
-                + "\t Aight, I'll head out. Keep up with your tasks!\n"
-                + "\t__________________________________________________"
+                "\t______________________________________________________________________\n"
+                + "\t Aight, I'll head out. Do your tasks! Remember... I'm watching you.\n"
+                + "\t______________________________________________________________________"
         );
     }
 }

@@ -9,7 +9,7 @@ Anyways! Here's what I can do for you:
 - Add tasks without dates (todo)
 - Add deadlines with specific due dates (deadline)
 - Schedule events with start and end times (event)
-- Track and manage your tasks with ease (list, mark, unmark)
+- Track and manage your tasks with ease (list, mark, unmark, delete)
 
 ## Features
 
@@ -49,6 +49,18 @@ Example:
 Expected Outcome:
 A new event "Project meeting" scheduled from 10:00 to 12:00 on 21st January 2025 will be added to your list.
 
+### Deleting Tasks
+Delete a task from task list.
+
+Usage:
+`delete <task_number>`
+
+Example:
+`delete 2`
+
+Expected Outcome:
+The task at the specified index will be deleted and the list will be updated accordingly.
+
 ### Viewing Your Tasks
 Display all your tasks in a list format.
 
@@ -68,7 +80,7 @@ Example:
 `mark 2`
 
 Expected Outcome:
-Task number 2 will be marked as done.
+tasks.Task number 2 will be marked as done.
 
 ### Unmarking Tasks
 Unmark a specific task as incomplete.
@@ -79,8 +91,8 @@ Usage:
 Example:
 `unmark 2`
 
-### Expected Outcome:
-Task number 2 will be marked as incomplete.
+Expected Outcome:
+tasks.Task number 2 will be marked as incomplete.
 
 ### Exiting the Application:
 Say your goodbyes guys!

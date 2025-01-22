@@ -1,17 +1,17 @@
 package exceptions;
 
-public class TyreseException extends Exception {
+public class TaskException extends Exception {
 
     // The 3 constructors below follow the Exception class
-    public TyreseException() {
+    public TaskException() {
         super();
     }
 
-    public TyreseException(String message) {
+    public TaskException(String message) {
         super(message);
     }
 
-    public TyreseException(String message, Throwable cause) {
+    public TaskException(String message, Throwable cause) {
         super(message, cause);
     }
 
