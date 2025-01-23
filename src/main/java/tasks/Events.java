@@ -3,7 +3,6 @@ package tasks;
 import exceptions.TaskException;
 
 public class Events extends Task{
-    private String description;
     private String startTime;
     private String endTime;
 
@@ -14,8 +13,8 @@ public class Events extends Task{
      * @param startTime This is when the task starts
      * @param endTime This is when the task must be completed by
      */
-    private Events(String startTime, String endTime, String description) {
-        super(description);
+    private Events(String startTime, String endTime, String description, TaskPriority taskPriority) {
+        super(description, taskPriority);
         this.startTime = startTime;
         this.endTime = endTime;
     }
@@ -33,14 +32,39 @@ public class Events extends Task{
         // Parts needs to have 2 elements in array if no whitespace
         // Parts[1] needs to contain " /to " as we haven't used it as a dilemeter to split from yet
         if (parts.length < 2 || !parts[1].contains(" /to ")) {
-            throw new TaskException("PLEASE BRUH! Use: event <description> /from <start> /to <end> ._.");
+            throw new TaskException("PLEASE BRUH! Use: event <description> /from <start> /to " +
+                    "<end> /priority <LOW|MEDIUM|HIGH|URGENT> ._.");
         }
-        String[] time = parts[1].split(" /to ");
-        String eventTask = parts[0].substring(5).trim();
-        String startTime = time[0];
-        String endTime = time[1];
 
-        return new Events(startTime, endTime, eventTask);
+        String[] timeParts = parts[1].split(" /to ");
+        if (timeParts.length < 2) {
+            throw new TaskException("One would think that a start and end time come as a pair wouldn't you?");
+        }
+
+        String eventTask = parts[0].substring(5).trim();
+        String startTime = timeParts[0];
+        String endTimeAndPriority = timeParts[1];
+
+        if (eventTask.isEmpty()) {
+            throw new TaskException("Watchu trying to describe bro? An abstract concept? Write a description!");
+        }
+        if (startTime.isEmpty() || endTimeAndPriority.isEmpty()) {
+            throw new TaskException("Sick event man! Just kidding, start and end times can't be empty.");
+        }
+
+        String[] endTimePriority = endTimeAndPriority.split(" /priority ");
+        String endTime = endTimePriority[0].trim();
+
+        TaskPriority taskPriority;
+        try {
+            taskPriority = (endTimePriority.length > 1)
+                    ? TaskPriority.valueOf(endTimePriority[1].toUpperCase())
+                    : TaskPriority.MEDIUM;
+        } catch (IllegalArgumentException e) {
+            throw new TaskException("Get your priorities in order! Use: LOW, MEDIUM, HIGH, or URGENT!");
+        }
+
+        return new Events(startTime, endTime, eventTask, taskPriority);
     }
 
     /**

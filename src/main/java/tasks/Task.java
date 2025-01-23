@@ -2,6 +2,7 @@ package tasks;
 
 public class Task {
     private String description;
+    private TaskPriority taskPriority;
     private boolean isDone;
 
     /**
@@ -9,8 +10,9 @@ public class Task {
      *
      * @param description This is a description of what the task should be
      */
-    public Task(String description) {
+    public Task(String description, TaskPriority taskPriority) {
         this.description = description;
+        this.taskPriority = taskPriority;
         isDone = false;
     }
 
@@ -40,12 +42,22 @@ public class Task {
     }
 
     /**
+     * To get the description of any one of the tasks
+     *
+     * @return The description of the task
+     */
+    public String getDescription() {
+        return this.description;
+    }
+
+    /**
      * Overriden toString() method
      *
      * @return Shows whether the task has or has not been completed
      */
     @Override
     public String toString() {
-        return "[" + (isDone ? "X" : " ") + "] " + description;
+        return "[" + (isDone ? "X" : " ") + "] " + this.description + " (Priority: "
+                + this.taskPriority.getDisplayName() + ")";
     }
 }

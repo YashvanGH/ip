@@ -9,8 +9,8 @@ public class Todo extends Task{
      *
      * @param description This is a description of what the todo task should be
      */
-    private Todo(String description) {
-        super(description);
+    private Todo(String description, TaskPriority taskPriority) {
+        super(description, taskPriority);
     }
 
     /**
@@ -22,12 +22,21 @@ public class Todo extends Task{
      */
     public static Todo create(String input) throws TaskException {
         // Trim to remove any whitespace for easier exception handling
-        String todoTask = input.substring(4).trim();
+        String[] parts = input.split(" /priority ");
+        String todoTask = parts[0].substring(4).trim();
         if (todoTask.isEmpty()) {
-            throw new TaskException("PLEASE BRUH! Use: todo <description> ._.");
+            throw new TaskException("PLEASE BRUH! Use: todo <description> /priority <LOW|MEDIUM|HIGH|URGENT> ._.");
         }
 
-       return new Todo(todoTask);
+        TaskPriority taskPriority;
+        try {
+            // Just checking if a priority has been assigned else label it as LOW priority
+            taskPriority = parts.length > 1 ? TaskPriority.valueOf(parts[1].toUpperCase()) : TaskPriority.LOW;
+        } catch (IllegalArgumentException e) {
+            throw new TaskException("Get your priorities in order! Use: LOW, MEDIUM, HIGH, or URGENT!");
+        }
+
+        return new Todo(todoTask, taskPriority);
     }
 
     /**

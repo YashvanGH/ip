@@ -81,7 +81,7 @@ public class Tyrese {
                     Todo todoTask = Todo.create(input);
                     taskManager.addTask(todoTask);
 
-                } catch (TaskException e) {
+                } catch (TaskException | IllegalArgumentException e) {
                     System.out.println(
                                     "\t______________________________________________________________________\n"
                                     + "\t " + e.getMessage()

@@ -34,9 +34,9 @@ public class Greeting {
         System.out.println(
                 """
                 Here's what I can do for now!
-                |todo <description>: Adds a todo without a specific date/time
-                |deadline <description> /by <due date>: Adds a task with a deadline
-                |event <description> /from <start date/time> /to <end date/time>: Adds an event with a start and end time
+                |todo <description> /priority <LOW|MEDIUM|HIGH|URGENT>: Adds a todo without a specific date/time
+                |deadline <description> /by <due date> <LOW|MEDIUM|HIGH|URGENT>: Adds a task with a deadline
+                |event <description> /from <start date/time> /to <end date/time> <LOW|MEDIUM|HIGH|URGENT>: Adds an event with a start and end time
                 |list: Displays all tasks added
                 |mark <task number>: Marks task no.x as done
                 |unmark <task number>: Unmarks task no.x
