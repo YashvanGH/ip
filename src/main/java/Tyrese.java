@@ -1,19 +1,34 @@
 import exceptions.MarkException;
 import exceptions.TaskException;
-import tasks.*;
+import tasks.TaskManager;
+import tasks.Todo;
+import tasks.Deadlines;
+import tasks.Events;
 import utils.Greeting;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Tyrese {
     public static void main(String[] args) {
-        Greeting greeting = new Greeting();
         TaskManager taskManager = new TaskManager();
-
         // To skip unicode characters for testing
         // Unicode characters show up as "?" which makes it hard for testing
         boolean skipAscii = args.length > 0 && args[0].equals("--skip-ascii");
         if (!skipAscii) {
-            greeting.greet();
+            Greeting.greet();
+        }
+
+        // Try to load tasks to populate the task list
+        try {
+            taskManager.loadTasks();
+        } catch (IOException e) {
+            System.out.println(
+                    "\t______________________________________________________________________\n"
+                            + "\t " + e.getMessage()
+                            + "\n\t______________________________________________________________________\n"
+            );
         }
 
         Scanner scanner = new Scanner(System.in);
@@ -25,7 +40,7 @@ public class Tyrese {
                 isRun = false;
 
             } else if (input.equals("help")) {
-                greeting.help();
+                Greeting.help();
 
             } else if (input.equals("list")) {
                 try {
@@ -54,7 +69,7 @@ public class Tyrese {
                 try {
                     TaskManager.markTask(input, taskManager);
 
-                } catch (NumberFormatException | MarkException | TaskException e) {
+                } catch (NumberFormatException | MarkException | TaskException | IOException e) {
                     System.out.println(
                             "\t______________________________________________________________________\n"
                                     + "\t " + e.getMessage()
@@ -81,7 +96,7 @@ public class Tyrese {
                     Todo todoTask = Todo.create(input);
                     taskManager.addTask(todoTask);
 
-                } catch (TaskException | IllegalArgumentException e) {
+                } catch (TaskException | IllegalArgumentException | IOException e) {
                     System.out.println(
                                     "\t______________________________________________________________________\n"
                                     + "\t " + e.getMessage()
@@ -94,7 +109,7 @@ public class Tyrese {
                     Deadlines deadlineTask = Deadlines.create(input);
                     taskManager.addTask(deadlineTask);
 
-                } catch (TaskException e) {
+                } catch (TaskException | IOException e) {
                     System.out.println(
                                     "\t______________________________________________________________________\n"
                                     + "\t " + e.getMessage()
@@ -107,7 +122,7 @@ public class Tyrese {
                     Events eventTask = Events.create(input);
                     taskManager.addTask(eventTask);
 
-                } catch (TaskException e) {
+                } catch (TaskException | IOException e) {
                     System.out.println(
                                     "\t______________________________________________________________________\n"
                                     + "\t " + e.getMessage()
@@ -128,9 +143,19 @@ public class Tyrese {
 
         }
 
-        greeting.sayGoodbye();
+        // Try to save unmarked tasks from the task list
+        try {
+            taskManager.saveUnmarkedTasks();
+        } catch (IOException e) {
+            System.out.println(
+                    "\t______________________________________________________________________\n"
+                            + "\t " + e.getMessage()
+                            + "\n\t______________________________________________________________________\n"
+            );
+        }
+
+        Greeting.sayGoodbye();
         scanner.close();
     }
 }
-
 

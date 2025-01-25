@@ -3,14 +3,9 @@ package utils;
 public class Greeting {
 
     /**
-     * Empty constructor to initialise instance of utils.Greeting Class
-     */
-    public Greeting() {}
-
-    /**
      * Introduces itself and greets the user
      */
-    public void greet() {
+    public static void greet() {
         String logo =
                   "████████╗██╗   ██╗██████╗ ███████╗███████╗███████╗\n"
                 + "╚══██╔══╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔════╝██╔════╝\n"
@@ -30,7 +25,7 @@ public class Greeting {
     /**
      * Lists out the current functions that can be used by the user
      */
-    public void help() {
+    public static void help() {
         System.out.println(
                 """
                 Here's what I can do for now!
@@ -48,7 +43,7 @@ public class Greeting {
     /**
      * Exits the application and greets the user goodbye
      */
-    public void sayGoodbye() {
+    public static void sayGoodbye() {
         System.out.println(
                 "\t______________________________________________________________________\n"
                 + "\t Aight, I'll head out. Do your tasks! Remember... I'm watching you.\n"
