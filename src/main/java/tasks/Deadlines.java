@@ -6,10 +6,11 @@ public class Deadlines extends Task {
     private String deadline;
 
     /**
-     * Private constructor for the Deadlines class
+     * Private constructor for the Deadlines class.
      *
-     * @param description This is a description of what the deadline task should be
-     * @param deadline This is when the task needs to be completed by
+     * @param description This is a description of what the deadline task should be.
+     * @param deadline This is when the task needs to be completed by.
+     * @param taskPriority This is the priority of the task.
      */
     private Deadlines(String description, String deadline, TaskPriority taskPriority) {
         super(description, taskPriority);
@@ -17,11 +18,12 @@ public class Deadlines extends Task {
     }
 
     /**
-     * Factory method to parse input and create a Deadlines object
+     * Creates an instance of Deadlines.
+     * A factory method to parse input and create a Deadlines object.
      *
-     * @param input The input string for the deadline task
-     * @return A new Deadlines object
-     * @throws TaskException If the input format is invalid
+     * @param input The input string for the deadline task.
+     * @return A new Deadlines object.
+     * @throws TaskException If the input format is invalid.
      */
     public static Deadlines create(String input) throws TaskException {
         String[] parts = input.split(" /by ");
@@ -56,9 +58,9 @@ public class Deadlines extends Task {
     }
 
     /**
-     * Overriden toString() method
+     * Returns string representation of the object.
      *
-     * @return Shows whether the deadline task has or has not been completed
+     * @return Shows whether the deadline task has or has not been completed.
      */
     @Override
     public String toString() {

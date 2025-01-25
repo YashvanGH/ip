@@ -9,7 +9,7 @@ Anyways! Here's what I can do for you:
 - Add tasks without dates (todo)
 - Add deadlines with specific due dates (deadline)
 - Schedule events with start and end times (event)
-- Track and manage your tasks with ease (list, mark, unmark, delete)
+- Track and manage your tasks with ease (list, mark, unmark, delete, save)
 
 ## Features
 
@@ -80,7 +80,7 @@ Example:
 `mark 2`
 
 Expected Outcome:
-tasks.Task number 2 will be marked as done.
+Task number 2 will be marked as done and will not be saved to save file.
 
 ### Unmarking Tasks
 Unmark a specific task as incomplete.
@@ -92,7 +92,7 @@ Example:
 `unmark 2`
 
 Expected Outcome:
-tasks.Task number 2 will be marked as incomplete.
+Task number 2 will be marked as incomplete.
 
 ### Exiting the Application:
 Say your goodbyes guys!

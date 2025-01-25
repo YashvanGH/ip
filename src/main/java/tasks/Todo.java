@@ -5,20 +5,22 @@ import exceptions.TaskException;
 public class Todo extends Task{
 
     /**
-     * Private constructor for the Todo class
+     * Private constructor for the Todo class.
      *
-     * @param description This is a description of what the todo task should be
+     * @param description This is a description of what the todo task should be.
+     * @param taskPriority This is the priority of the task.
      */
     private Todo(String description, TaskPriority taskPriority) {
         super(description, taskPriority);
     }
 
     /**
-     * Factory method to parse input and create a Todo object
+     * Creates an instance of Todo.
+     * Factory method to parse input and create a Todo object.
      *
-     * @param input The input string for the todo task
-     * @return A new Todo object
-     * @throws TaskException If the input format is invalid
+     * @param input The input string for the todo task.
+     * @return A new Todo object.
+     * @throws TaskException If the input format is invalid.
      */
     public static Todo create(String input) throws TaskException {
         // Trim to remove any whitespace for easier exception handling
@@ -40,9 +42,9 @@ public class Todo extends Task{
     }
 
     /**
-     * Overriden toString() method
+     * Returns string representation of the object.
      *
-     * @return Shows whether the todo task has or has not been completed
+     * @return Shows whether the todo task has or has not been completed.
      */
     @Override
     public String toString() {
