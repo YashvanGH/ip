@@ -2,8 +2,15 @@ package tasks;
 
 import exceptions.TaskException;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 public class Deadlines extends Task {
-    private String deadline;
+    private LocalDateTime deadline;
+    private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
+    private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("d MMMM yyyy, h:mma");
 
     /**
      * Private constructor for the Deadlines class.
@@ -12,7 +19,7 @@ public class Deadlines extends Task {
      * @param deadline This is when the task needs to be completed by.
      * @param taskPriority This is the priority of the task.
      */
-    private Deadlines(String description, String deadline, TaskPriority taskPriority) {
+    private Deadlines(String description, LocalDateTime deadline, TaskPriority taskPriority) {
         super(description, taskPriority);
         this.deadline = deadline;
     }
@@ -30,9 +37,10 @@ public class Deadlines extends Task {
         // Ensure "deadline" has valid format
         // Parts needs to have 2 elements in array if no whitespace
         // Considered whitespace if task
-        //        if (parts.length < 2 || parts[0].length() <= 9) {
-        //            throw new TaskException("PLEASE BRUH! Use: deadline <description> /by <date> /priority <LOW|MEDIUM|HIGH|URGENT> ._.");
-        //        }
+        if (parts.length < 2) {
+            throw new TaskException("PLEASE BRUH! Use: deadline <description> /by <d/M/yyyy HHmm> "
+                    + "/priority <LOW|MEDIUM|HIGH|URGENT> ._.");
+        }
 
         String deadlineTask = parts[0].substring(8).trim();
         if (deadlineTask.isEmpty()) {
@@ -40,9 +48,12 @@ public class Deadlines extends Task {
         }
 
         String[] deadlineParts = parts[1].split(" /priority ");
-        String deadline = deadlineParts[0].trim();
-        if (deadline.isEmpty()) {
-            throw new TaskException("So you're just gonna have a deadlined task with no deadline?");
+        LocalDateTime deadline;
+
+        try {
+            deadline = LocalDateTime.parse(deadlineParts[0].trim(), INPUT_FORMATTER);
+        } catch (DateTimeParseException e) {
+            throw new TaskException("Invalid date-time format bro! Use: d/M/yyyy HHmm.");
         }
 
         TaskPriority taskPriority;
@@ -64,6 +75,6 @@ public class Deadlines extends Task {
      */
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + this.deadline + ")";
+        return "[D]" + super.toString() + " (by: " + this.deadline.format(OUTPUT_FORMATTER) + ")";
     }
 }

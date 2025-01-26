@@ -2,9 +2,15 @@ package tasks;
 
 import exceptions.TaskException;
 
-public class Events extends Task{
-    private String startTime;
-    private String endTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
+public class Events extends Task {
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+    private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
+    private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("d MMMM yyyy, h:mma");
 
     /**
      * Private constructor for the Deadlines class.
@@ -14,7 +20,7 @@ public class Events extends Task{
      * @param endTime This is when the task must be completed by.
      * @param taskPriority This is the priority of the task.
      */
-    private Events(String startTime, String endTime, String description, TaskPriority taskPriority) {
+    private Events(LocalDateTime startTime, LocalDateTime endTime, String description, TaskPriority taskPriority) {
         super(description, taskPriority);
         this.startTime = startTime;
         this.endTime = endTime;
@@ -44,18 +50,19 @@ public class Events extends Task{
         }
 
         String eventTask = parts[0].substring(5).trim();
-        String startTime = timeParts[0];
+        String startTimeString = timeParts[0].trim();
         String endTimeAndPriority = timeParts[1];
 
         if (eventTask.isEmpty()) {
             throw new TaskException("Watchu trying to describe bro? An abstract concept? Write a description!");
         }
-        if (startTime.isEmpty() || endTimeAndPriority.isEmpty()) {
+        if (startTimeString.isEmpty() || endTimeAndPriority.isEmpty()) {
             throw new TaskException("Sick event man! Just kidding, start and end times can't be empty.");
         }
 
+        // Parse end time and priority
         String[] endTimePriority = endTimeAndPriority.split(" /priority ");
-        String endTime = endTimePriority[0].trim();
+        String endTimeString = endTimePriority[0].trim();
 
         TaskPriority taskPriority;
         try {
@@ -64,6 +71,15 @@ public class Events extends Task{
                     : TaskPriority.MEDIUM;
         } catch (IllegalArgumentException e) {
             throw new TaskException("Get your priorities in order! Use: LOW, MEDIUM, HIGH, or URGENT!");
+        }
+
+        // Parse date-time strings
+        LocalDateTime startTime, endTime;
+        try {
+            startTime = LocalDateTime.parse(startTimeString, INPUT_FORMATTER);
+            endTime = LocalDateTime.parse(endTimeString, INPUT_FORMATTER);
+        } catch (DateTimeParseException e) {
+            throw new TaskException("Invalid date-time format. Use: d/M/yyyy HHmm.");
         }
 
         return new Events(startTime, endTime, eventTask, taskPriority);
@@ -76,7 +92,12 @@ public class Events extends Task{
      */
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from: " + startTime + " to: " + endTime + ")";
+        return "[E]" + super.toString()
+                + " (from: "
+                + startTime.format(OUTPUT_FORMATTER).toLowerCase()
+                + " to: "
+                + endTime.format(OUTPUT_FORMATTER).toLowerCase()
+                + ")";
     }
 }
 

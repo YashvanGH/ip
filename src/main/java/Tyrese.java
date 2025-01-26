@@ -13,10 +13,12 @@ import java.util.Scanner;
 public class Tyrese {
     public static void main(String[] args) {
         TaskManager taskManager = new TaskManager();
-        // To skip unicode characters for testing
-        // Unicode characters show up as "?" which makes it hard for testing
-        boolean skipAscii = args.length > 0 && args[0].equals("--skip-ascii");
-        if (!skipAscii) {
+
+        boolean isTestMode = args.length > 0 && args[0].equals("--test");
+
+        if (!isTestMode) {
+            // To skip unicode characters for testing
+            // Unicode characters show up as "?" which makes it hard for testing
             Greeting.greet();
         }
 
@@ -30,6 +32,8 @@ public class Tyrese {
                             + "\n\t______________________________________________________________________\n"
             );
         }
+
+
 
         Scanner scanner = new Scanner(System.in);
         boolean isRun = true;
