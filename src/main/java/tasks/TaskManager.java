@@ -5,7 +5,6 @@ import exceptions.TaskException;
 import utils.SaveFileIO;
 
 import java.io.File;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -31,8 +30,7 @@ public class TaskManager {
 
             System.out.println(
                             "\t______________________________________________________________________\n"
-                            + "\t I've added this to tasks:\n"
-                            + "\t  "
+                            + "\t I've added this to tasks: \n\t "
                             + task
                             + "\n\t Cool. You have " + taskList.size() + " tasks now. Anything else?\n"
                             + "\t______________________________________________________________________\n"
@@ -259,15 +257,11 @@ public class TaskManager {
                 String todoInput = "todo " + description + " /priority " + todoPriority.toUpperCase();
                 return Todo.create(todoInput);
             case "D": // Deadlines
-                String deadline = line.substring(line.indexOf("(by:") + 5, line.lastIndexOf(")")).trim();
-                String deadlineInput = "deadline " + description + " /by " + deadline + " /priority "
-                        + priority.toUpperCase();
+                //[D][ ] play (Priority: Low) (by: 2 March 2014, 6:00pm)
+                String deadlineInput = TaskDateTimeParser.deadlineParser(line);
                 return Deadlines.create(deadlineInput);
             case "E": // Events
-                String startDate = line.substring(line.indexOf("(from:") + 7, line.indexOf("to:") - 1).trim();
-                String endDate = line.substring(line.indexOf("to:") + 4, line.lastIndexOf(")")).trim();
-                String eventInput = "event " + description + " /from " + startDate + " /to " + endDate + " /priority "
-                        + priority.toUpperCase();
+                String eventInput = TaskDateTimeParser.eventParser(line);
                 return Events.create(eventInput);
             default:
                 return null;

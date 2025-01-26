@@ -6,6 +6,12 @@ then
     mkdir ../bin
 fi
 
+# Delete the tyrese file if it exists
+if [ -f "text-ui-test/src/main/java/savedata/tyrese.txt" ]; then
+    rm text-ui-test/src/main/java/savedata/tyrese.txt
+    echo "Deleted tyrese.txt before running tests"
+fi
+
 # delete output from previous run
 if [ -e "./ACTUAL.TXT" ]
 then
@@ -20,7 +26,7 @@ then
 fi
 
 # run the program, feed commands from input.txt file and redirect the output to the ACTUAL.TXT
-java -classpath ../bin Tyrese --skip-ascii < input.txt > ACTUAL.TXT
+java -classpath ../bin Tyrese --test < input.txt > ACTUAL.TXT
 
 # convert to UNIX format
 cp EXPECTED.TXT EXPECTED-UNIX.TXT

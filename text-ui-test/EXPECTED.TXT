@@ -52,7 +52,7 @@ Here's what I can do for now!
 	______________________________________________________________________
 
 	______________________________________________________________________
-	 Watchu trying to describe bro? An abstract concept? Write a description!
+	 PLEASE BRUH! Use: deadline <description> /by <d/M/yyyy HHmm> /priority <LOW|MEDIUM|HIGH|URGENT> ._.
 	______________________________________________________________________
 
 	______________________________________________________________________
@@ -61,37 +61,37 @@ Here's what I can do for now!
 
 	______________________________________________________________________
 	 I've added this to tasks:
-	  [T][ ] Procrastinate my iP (Priority: Low)
+	 [T][ ] Procrastinate my iP (Priority: Low)
 	 Cool. You have 1 tasks now. Anything else?
 	______________________________________________________________________
 
 	______________________________________________________________________
 	 I've added this to tasks:
-	  [D][ ] CS2103T (Priority: Low) (by: Friday 24/01/25)
+	 [D][ ] CS2103T (Priority: Low) (by: 24 January 2025, 6:00pm)
 	 Cool. You have 2 tasks now. Anything else?
 	______________________________________________________________________
 
 	______________________________________________________________________
 	 I've added this to tasks:
-	  [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	 Cool. You have 3 tasks now. Anything else?
 	______________________________________________________________________
 
 	______________________________________________________________________
 	 I've added this to tasks:
-	  [T][ ] Procrastinate my iP (Priority: Low)
+	 [T][ ] Procrastinate my iP (Priority: Low)
 	 Cool. You have 4 tasks now. Anything else?
 	______________________________________________________________________
 
 	______________________________________________________________________
 	 I've added this to tasks:
-	  [D][ ] CS2103T (Priority: Medium) (by: Friday 24/01/25)
+	 [D][ ] CS2103T (Priority: Medium) (by: 24 January 2025, 6:00pm)
 	 Cool. You have 5 tasks now. Anything else?
 	______________________________________________________________________
 
 	______________________________________________________________________
 	 I've added this to tasks:
-	  [E][ ] ST1131 Quiz 1 (Priority: High) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 [E][ ] ST1131 Quiz 1 (Priority: High) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	 Cool. You have 6 tasks now. Anything else?
 	______________________________________________________________________
 
@@ -101,31 +101,31 @@ Here's what I can do for now!
 
 	______________________________________________________________________
 	 1: [T][ ] Procrastinate my iP (Priority: Low)
-	 2: [D][ ] CS2103T (Priority: Low) (by: Friday 24/01/25)
-	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 2: [D][ ] CS2103T (Priority: Low) (by: 24 January 2025, 6:00pm)
+	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	 4: [T][ ] Procrastinate my iP (Priority: Low)
-	 5: [D][ ] CS2103T (Priority: Medium) (by: Friday 24/01/25)
-	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 5: [D][ ] CS2103T (Priority: Medium) (by: 24 January 2025, 6:00pm)
+	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	______________________________________________________________________
 
 	Nice! I've marked task 1 as done!
 	______________________________________________________________________
 	 1: [T][X] Procrastinate my iP (Priority: Low)
-	 2: [D][ ] CS2103T (Priority: Low) (by: Friday 24/01/25)
-	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 2: [D][ ] CS2103T (Priority: Low) (by: 24 January 2025, 6:00pm)
+	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	 4: [T][ ] Procrastinate my iP (Priority: Low)
-	 5: [D][ ] CS2103T (Priority: Medium) (by: Friday 24/01/25)
-	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 5: [D][ ] CS2103T (Priority: Medium) (by: 24 January 2025, 6:00pm)
+	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	______________________________________________________________________
 
 	Nice! I've marked task 2 as done!
 	______________________________________________________________________
 	 1: [T][X] Procrastinate my iP (Priority: Low)
-	 2: [D][X] CS2103T (Priority: Low) (by: Friday 24/01/25)
-	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 2: [D][X] CS2103T (Priority: Low) (by: 24 January 2025, 6:00pm)
+	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	 4: [T][ ] Procrastinate my iP (Priority: Low)
-	 5: [D][ ] CS2103T (Priority: Medium) (by: Friday 24/01/25)
-	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 5: [D][ ] CS2103T (Priority: Medium) (by: 24 January 2025, 6:00pm)
+	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	______________________________________________________________________
 
 	______________________________________________________________________
@@ -135,21 +135,21 @@ Here's what I can do for now!
 	An uno reverse? Task 1 has been unmarked!
 	______________________________________________________________________
 	 1: [T][ ] Procrastinate my iP (Priority: Low)
-	 2: [D][X] CS2103T (Priority: Low) (by: Friday 24/01/25)
-	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 2: [D][X] CS2103T (Priority: Low) (by: 24 January 2025, 6:00pm)
+	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	 4: [T][ ] Procrastinate my iP (Priority: Low)
-	 5: [D][ ] CS2103T (Priority: Medium) (by: Friday 24/01/25)
-	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 5: [D][ ] CS2103T (Priority: Medium) (by: 24 January 2025, 6:00pm)
+	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	______________________________________________________________________
 
 	An uno reverse? Task 2 has been unmarked!
 	______________________________________________________________________
 	 1: [T][ ] Procrastinate my iP (Priority: Low)
-	 2: [D][ ] CS2103T (Priority: Low) (by: Friday 24/01/25)
-	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 2: [D][ ] CS2103T (Priority: Low) (by: 24 January 2025, 6:00pm)
+	 3: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	 4: [T][ ] Procrastinate my iP (Priority: Low)
-	 5: [D][ ] CS2103T (Priority: Medium) (by: Friday 24/01/25)
-	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 5: [D][ ] CS2103T (Priority: Medium) (by: 24 January 2025, 6:00pm)
+	 6: [E][ ] ST1131 Quiz 1 (Priority: High) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	______________________________________________________________________
 
 	______________________________________________________________________
@@ -163,24 +163,24 @@ Here's what I can do for now!
 	______________________________________________________________________
 
 	______________________________________________________________________
-	 1: [D][ ] CS2103T (Priority: Low) (by: Friday 24/01/25)
-	 2: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 1: [D][ ] CS2103T (Priority: Low) (by: 24 January 2025, 6:00pm)
+	 2: [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	 3: [T][ ] Procrastinate my iP (Priority: Low)
-	 4: [D][ ] CS2103T (Priority: Medium) (by: Friday 24/01/25)
-	 5: [E][ ] ST1131 Quiz 1 (Priority: High) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 4: [D][ ] CS2103T (Priority: Medium) (by: 24 January 2025, 6:00pm)
+	 5: [E][ ] ST1131 Quiz 1 (Priority: High) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	______________________________________________________________________
 
 	______________________________________________________________________
 	 I've removed this from tasks:
-	  [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	  [E][ ] ST1131 Quiz 1 (Priority: Medium) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	 Cool. You have 4 tasks now. Anything else?
 	______________________________________________________________________
 
 	______________________________________________________________________
-	 1: [D][ ] CS2103T (Priority: Low) (by: Friday 24/01/25)
+	 1: [D][ ] CS2103T (Priority: Low) (by: 24 January 2025, 6:00pm)
 	 2: [T][ ] Procrastinate my iP (Priority: Low)
-	 3: [D][ ] CS2103T (Priority: Medium) (by: Friday 24/01/25)
-	 4: [E][ ] ST1131 Quiz 1 (Priority: High) (from: Monday 20/1/25 to: Sunday 26/1/25)
+	 3: [D][ ] CS2103T (Priority: Medium) (by: 24 January 2025, 6:00pm)
+	 4: [E][ ] ST1131 Quiz 1 (Priority: High) (from: 20 january 2025, 6:00am to: 26 january 2025, 6:00am)
 	______________________________________________________________________
 
 	______________________________________________________________________
