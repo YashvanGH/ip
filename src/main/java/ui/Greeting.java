@@ -1,5 +1,11 @@
 package ui;
 
+/**
+ * This class represents an interaction between the user and system.
+ * It greets the user when starting up and bids goodbye when done.
+ *
+ * @author Yashvan
+ */
 public class Greeting {
 
     /**
@@ -20,18 +26,18 @@ public class Greeting {
      */
     @SuppressWarnings("checkstyle:LineLength")
     public static void help() {
-        System.out.println(
-                """
-                Here's what I can do for now!
-                |todo <description> /priority <LOW|MEDIUM|HIGH|URGENT>: Adds a todo without a specific date/time
-                |deadline <description> /by <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>: Adds a task with a deadline
-                |event <description> /from <D/M/YYYY HHmm> /to <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>: Adds an event with a start and end time
-                |list: Displays all tasks added
-                |mark <task number>: Marks task no.x as done
-                |unmark <task number>: Unmarks task no.x
-                |exit: Exits the application
-                """
-        );
+        System.out.println("Here's what I can do for now!");
+        System.out.println("|todo <description> /priority <LOW|MEDIUM|HIGH|URGENT>: "
+                + "Adds a todo without a specific date/time");
+        System.out.println("|deadline <description> /by <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>:"
+                + "Adds a task with a deadline");
+        System.out.println("|event <description> /from <D/M/YYYY HHmm> /to <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>: "
+                + "Adds an event with a start and end time");
+        System.out.println("|delete <task number>: Deletes task no.x");
+        System.out.println("|list: Displays all tasks added");
+        System.out.println("|mark <task number>: Marks task no.x as done");
+        System.out.println("|unmark <task number>: Unmarks task no.x");
+        System.out.println("|exit: Exits the application");
     }
 
     /**

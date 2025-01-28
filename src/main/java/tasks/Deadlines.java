@@ -6,6 +6,12 @@ import java.time.format.DateTimeParseException;
 
 import exceptions.TaskException;
 
+/**
+ * This class represents a task with a deadline.
+ * It extends the {@link Task} class and includes a specific date and time.
+ *
+ * @author Yashvan
+ */
 public class Deadlines extends Task {
     private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("d MMMM yyyy, h:mma");

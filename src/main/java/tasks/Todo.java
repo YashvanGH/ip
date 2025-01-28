@@ -2,6 +2,12 @@ package tasks;
 
 import exceptions.TaskException;
 
+/**
+ * This class represents a class with no deadline.
+ * It extends from the {@link Task} class.
+ *
+ * @author Yashvan
+ */
 public class Todo extends Task {
 
     /**

@@ -1,5 +1,11 @@
 package exceptions;
 
+/**
+ * This class handles the exceptions thrown by operations such as mark and unmark
+ * in the {@link tasks.TaskManager TaskManager} Class.
+ *
+ * @author Yashvan
+ */
 public class TaskException extends Exception {
 
     // The 3 constructors below follow the Exception class
