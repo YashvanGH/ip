@@ -68,7 +68,7 @@ public class Events extends Task {
         try {
             taskPriority = (endTimePriority.length > 1)
                     ? TaskPriority.valueOf(endTimePriority[1].toUpperCase())
-                    : TaskPriority.MEDIUM;
+                    : TaskPriority.LOW;
         } catch (IllegalArgumentException e) {
             throw new TaskException("Get your priorities in order! Use: LOW, MEDIUM, HIGH, or URGENT!");
         }
@@ -76,14 +76,29 @@ public class Events extends Task {
         // Parse date-time strings
         LocalDateTime startTime;
         LocalDateTime endTime;
+
         try {
             startTime = LocalDateTime.parse(startTimeString, INPUT_FORMATTER);
             endTime = LocalDateTime.parse(endTimeString, INPUT_FORMATTER);
+            validateEventTimes(startTime, endTime);
         } catch (DateTimeParseException e) {
-            throw new TaskException("Invalid date-time format. Use: d/M/yyyy HHmm.");
+            throw new TaskException("Invalid date-time format bro! Use: d/M/yyyy HHmm.");
         }
 
         return new Events(startTime, endTime, eventTask, taskPriority);
+    }
+
+    /**
+     * Checks if the end time is before the start time of an event.
+     *
+     * @param startTime The time the event starts.
+     * @param endTime The time the event ends.
+     * @throws TaskException If the time the event ends is before the time it starts.
+     */
+    private static void validateEventTimes(LocalDateTime startTime, LocalDateTime endTime) throws TaskException {
+        if (endTime.isBefore(startTime)) {
+            throw new TaskException("Are you a time traveler cos an end time cannot be before a start time!");
+        }
     }
 
     /**
@@ -95,9 +110,9 @@ public class Events extends Task {
     public String toString() {
         return "[E]" + super.toString()
                 + " (from: "
-                + startTime.format(OUTPUT_FORMATTER).toLowerCase()
+                + startTime.format(OUTPUT_FORMATTER)
                 + " to: "
-                + endTime.format(OUTPUT_FORMATTER).toLowerCase()
+                + endTime.format(OUTPUT_FORMATTER)
                 + ")";
     }
 }
