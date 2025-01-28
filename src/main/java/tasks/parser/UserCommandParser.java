@@ -1,12 +1,12 @@
-package tasks;
+package tasks.parser;
 
 import exceptions.MarkException;
 import exceptions.TaskException;
-import utils.Greeting;
-import tasks.TaskManager;
-import tasks.Todo;
 import tasks.Deadlines;
 import tasks.Events;
+import tasks.TaskManager;
+import tasks.Todo;
+import ui.Greeting;
 
 import java.io.IOException;
 
