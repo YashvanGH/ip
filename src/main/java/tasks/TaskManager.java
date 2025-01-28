@@ -29,11 +29,11 @@ public class TaskManager {
             taskList.add(task);
 
             System.out.println(
-                            "\t______________________________________________________________________\n"
-                            + "\t I've added this to tasks: \n\t "
-                            + task
-                            + "\n\t Cool. You have " + taskList.size() + " tasks now. Anything else?\n"
-                            + "\t______________________________________________________________________\n"
+                    "\t______________________________________________________________________________________\n"
+                    + "\t I've added this to tasks:\n\t "
+                    + task
+                    + "\n\t Cool. You have " + taskList.size() + " tasks now. Anything else?\n"
+                    + "\t______________________________________________________________________________________\n"
             );
         }
     }
@@ -55,12 +55,12 @@ public class TaskManager {
 
         Task removedTask = taskList.remove(index);
         System.out.println(
-                "\t______________________________________________________________________\n"
-                        + "\t I've removed this from tasks:\n"
-                        + "\t  "
-                        + removedTask
-                        + "\n\t Cool. You have " + taskList.size() + " tasks now. Anything else?\n"
-                        + "\t______________________________________________________________________\n"
+                "\t______________________________________________________________________________________\n"
+                + "\t I've removed this from tasks:\n"
+                + "\t  "
+                + removedTask
+                + "\n\t Cool. You have " + taskList.size() + " tasks now. Anything else?\n"
+                + "\t______________________________________________________________________________________\n"
         );
     }
 
@@ -193,20 +193,20 @@ public class TaskManager {
             throw new TaskException("Yo! You have nothing in your task list (for now)");
         }
 
-        System.out.println("\t______________________________________________________________________");
+        System.out.println("\t______________________________________________________________________________________");
         for (int i = 0; i < taskList.size(); i++) {
             System.out.println("\t " + (i + 1) + ": " + taskList.get(i).toString());
         }
-        System.out.println("\t______________________________________________________________________\n");
+        System.out.println("\t______________________________________________________________________________________\n");
     }
 
     /**
-     * Loads all tasks from the tyrese.txt file into current user session.
+     * Loads all tasks from the tyrese.txt.txt file into current user session.
      *
      * @throws IOException If the file cannot be found or does not exist.
      */
     public void loadTasks() throws IOException {
-        File file = new File("src/main/java/savedata/tyrese");
+        File file = new File("src/main/java/savedata/tyrese.txt");
 
         if (!file.exists() && !file.createNewFile()) {
             throw new IOException("You have no saved tasks! Imma initialise a new list!");
@@ -230,7 +230,7 @@ public class TaskManager {
     }
 
     /**
-     * Returns one of the tasks in its original input form to be loaded into the tyrese.txt file.
+     * Returns one of the tasks in its original input form to be loaded into the tyrese.txt.txt file.
      *
      * @param line The line that is used to convert to its original input.
      * @return One of the 3 tasks (Todo, Deadlines, Events).
@@ -269,9 +269,9 @@ public class TaskManager {
             }
         } catch (TaskException e) {
             System.out.println(
-                    "\t______________________________________________________________________\n"
-                            + "\t " + e.getMessage()
-                            + "\n\t______________________________________________________________________\n"
+                    "\t______________________________________________________________________________________\n"
+                    + "\t " + e.getMessage()
+                    + "\n\t______________________________________________________________________________________\n"
             );
         }
         // This line should never be reached
@@ -279,7 +279,7 @@ public class TaskManager {
     }
 
     /**
-     * Saves only the unmarked tasks to the tyrese.txt file.
+     * Saves only the unmarked tasks to the tyrese.txt.txt file.
      *
      * @throws IOException If tasks cannot be found or saved.
      */
