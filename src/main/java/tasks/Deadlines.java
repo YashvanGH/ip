@@ -1,16 +1,15 @@
 package tasks;
 
-import exceptions.TaskException;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import exceptions.TaskException;
+
 public class Deadlines extends Task {
-    private LocalDateTime deadline;
     private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("d MMMM yyyy, h:mma");
+    private LocalDateTime deadline;
 
     /**
      * Private constructor for the Deadlines class.

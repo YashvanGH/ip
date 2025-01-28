@@ -1,12 +1,11 @@
 package storage;
 
-import tasks.Task;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import tasks.Task;
 
 public class SaveFileIO {
     private static final String DIRECTORY = "src/main/java/savedata";

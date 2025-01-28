@@ -6,17 +6,10 @@ public class Greeting {
      * Introduces itself and greets the user
      */
     public static void greet() {
-        String logo =
-                  "████████╗██╗   ██╗██████╗ ███████╗███████╗███████╗\n"
-                + "╚══██╔══╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔════╝██╔════╝\n"
-                + "   ██║    ╚████╔╝ ██████╔╝█████╗  ███████╗█████╗  \n"
-                + "   ██║     ╚██╔╝  ██╔══██╗██╔══╝  ╚════██║██╔══╝  \n"
-                + "   ██║      ██║   ██║  ██║███████╗███████║███████╗\n"
-                + "   ╚═╝      ╚═╝   ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝\n";
         System.out.println(
                         "__________________________________________________\n"
-                        + logo
-                        + "\t\t\t   What's up? You rang?\n"
+                        + "\t\t\t It's ya boi Tyrese!\n"
+                        + "\t\t\t What's up? You rang?\n"
                         + "\t    Type 'help' to see what I can do! \n"
                         + "__________________________________________________\n"
         );
@@ -25,6 +18,7 @@ public class Greeting {
     /**
      * Lists out the current functions that can be used by the user
      */
+    @SuppressWarnings("checkstyle:LineLength")
     public static void help() {
         System.out.println(
                 """

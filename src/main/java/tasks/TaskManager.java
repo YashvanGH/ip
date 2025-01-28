@@ -1,17 +1,17 @@
 package tasks;
 
-import exceptions.MarkException;
-import exceptions.TaskException;
-import storage.SaveFileIO;
-import tasks.parser.TaskDateTimeParser;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import exceptions.MarkException;
+import exceptions.TaskException;
+import storage.SaveFileIO;
+import tasks.parser.TaskDateTimeParser;
+
 public class TaskManager {
-    ArrayList<Task> taskList = new ArrayList<>();
+    private ArrayList<Task> taskList = new ArrayList<>();
 
     /**
      * Empty constructor to initialise instance of TaskManager Class.
@@ -68,7 +68,7 @@ public class TaskManager {
     /**
      * Parses input and deletes a task.
      *
-     * @param input       The user input in the format of "delete <task_number>".
+     * @param input       The user input in the format of "delete task_number".
      * @param taskManager The {@link TaskManager} instance managing the tasks.
      * @throws NumberFormatException If the task number is missing, empty, or invalid.
      * @throws TaskException         If the task list is empty or the task number is invalid.
@@ -119,7 +119,7 @@ public class TaskManager {
      * Marks the specified task as done based on the user input.
      * Parses the input string to extract the task number.
      *
-     * @param input       The user input in the format of "mark <task_number>".
+     * @param input       The user input in the format of "mark task_number".
      * @param taskManager The {@link TaskManager} instance managing the tasks.
      * @throws NumberFormatException If the task number is missing, empty or invalid.
      * @throws MarkException         If the specified task does not exist.
@@ -127,9 +127,13 @@ public class TaskManager {
      */
     public static void markTask(String input, TaskManager taskManager) throws NumberFormatException, MarkException,
             TaskException, IOException {
-        if (input.length() <= 5) { throw new NumberFormatException("Boh... Use: mark <task_number>"); }
+        if (input.length() <= 5) {
+            throw new NumberFormatException("Boh... Use: mark <task_number>");
+        }
         String numberString = input.substring(5).trim();
-        if (numberString.isEmpty()) { throw new NumberFormatException("Boh... Use: mark <task_number>"); }
+        if (numberString.isEmpty()) {
+            throw new NumberFormatException("Boh... Use: mark <task_number>");
+        }
         int indexToMark;
         try {
             indexToMark = Integer.parseInt(input.substring(5)) - 1;
@@ -166,7 +170,7 @@ public class TaskManager {
      * Marks the specified task as undone based on the user input.
      * Parses the input string to extract the task number.
      *
-     * @param input       The user input in the format of "unmark <task_number>".
+     * @param input       The user input in the format of "unmark task_number".
      * @param taskManager The {@link TaskManager} instance managing the tasks.
      * @throws NumberFormatException If the task number is missing, empty or invalid.
      * @throws MarkException         If the specified task does not exist.
@@ -174,9 +178,13 @@ public class TaskManager {
      */
     public static void unmarkTask(String input, TaskManager taskManager) throws NumberFormatException, MarkException,
             TaskException {
-        if (input.length() <= 7) {throw new NumberFormatException("Boh... Use: unmark <task_number>"); }
+        if (input.length() <= 7) {
+            throw new NumberFormatException("Boh... Use: unmark <task_number>");
+        }
         String numberString = input.substring(5).trim();
-        if (numberString.isEmpty()) { throw new NumberFormatException("Boh... Use: unmark <task_number>"); }
+        if (numberString.isEmpty()) {
+            throw new NumberFormatException("Boh... Use: unmark <task_number>");
+        }
         int indexToUnmark;
         try {
             indexToUnmark = Integer.parseInt(input.substring(7)) - 1;
@@ -198,7 +206,8 @@ public class TaskManager {
         for (int i = 0; i < taskList.size(); i++) {
             System.out.println("\t " + (i + 1) + ": " + taskList.get(i).toString());
         }
-        System.out.println("\t______________________________________________________________________________________\n");
+        System.out.println("\t_____________________________________________"
+                + "_________________________________________\n");
     }
 
     /**
@@ -239,7 +248,7 @@ public class TaskManager {
     private Task parseTask(String line) {
         try {
             // [T][ ] read (Priority: Low)
-            String taskType = line.substring(1,2);
+            String taskType = line.substring(1, 2);
             boolean isDone = line.charAt(4) == 'X';
 
             if (isDone) {
