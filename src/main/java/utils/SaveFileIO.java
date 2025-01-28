@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 public class SaveFileIO {
     private static final String DIRECTORY = "src/main/java/savedata";
-    private static final String FILE_NAME = "tyrese";
+    private static final String FILE_NAME = "tyrese.txt";
 
     /**
-     * Writes to the tyrese.txt file.
+     * Writes to the tyrese.txt.txt file.
      *
      * @param taskList The tasklist containing unmarked tasks.
-     * @throws IOException If tyrese.txt cannot be written to.
+     * @throws IOException If tyrese.txt.txt cannot be written to.
      */
     public static void writeToSaveFile(ArrayList<Task> taskList) throws IOException {
 
@@ -37,10 +37,10 @@ public class SaveFileIO {
     }
 
     /**
-     * Creates the "data" directory and "tyrese.txt" file to save the data to.
+     * Creates the "data" directory and "tyrese.txt.txt" file to save the data to.
      *
      * @return The file to write and save the data to.
-     * @throws IOException If "data" directory or "tyrese.txt" file cannot be created.
+     * @throws IOException If "data" directory or "tyrese.txt.txt" file cannot be created.
      */
     private static File getFile() throws IOException {
         File directory = new File(DIRECTORY);

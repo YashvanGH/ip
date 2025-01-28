@@ -30,8 +30,8 @@ public class Greeting {
                 """
                 Here's what I can do for now!
                 |todo <description> /priority <LOW|MEDIUM|HIGH|URGENT>: Adds a todo without a specific date/time
-                |deadline <description> /by <due date> <LOW|MEDIUM|HIGH|URGENT>: Adds a task with a deadline
-                |event <description> /from <start date/time> /to <end date/time> <LOW|MEDIUM|HIGH|URGENT>: Adds an event with a start and end time
+                |deadline <description> /by <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>: Adds a task with a deadline
+                |event <description> /from <D/M/YYYY HHmm> /to <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>: Adds an event with a start and end time
                 |list: Displays all tasks added
                 |mark <task number>: Marks task no.x as done
                 |unmark <task number>: Unmarks task no.x
@@ -45,9 +45,9 @@ public class Greeting {
      */
     public static void sayGoodbye() {
         System.out.println(
-                "\t______________________________________________________________________\n"
+                "\t______________________________________________________________________________________\n"
                 + "\t Aight, I'll head out. Do your tasks! Remember... I'm watching you.\n"
-                + "\t______________________________________________________________________"
+                + "\t______________________________________________________________________________________"
         );
     }
 }

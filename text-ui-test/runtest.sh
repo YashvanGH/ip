@@ -6,10 +6,12 @@ then
     mkdir ../bin
 fi
 
-# Delete the tyrese file if it exists
+# Delete the tyrese.txt file if it exists
 if [ -f "text-ui-test/src/main/java/savedata/tyrese.txt" ]; then
-    rm text-ui-test/src/main/java/savedata/tyrese.txt
-    echo "Deleted tyrese.txt before running tests"
+    rm "text-ui-test/src/main/java/savedata/tyrese.txt"
+    echo "Deleted tyrese.txt before running tests."
+    touch "text-ui-test/src/main/java/savedata/tyrese.txt"
+    echo "Recreated tyrese.txt as empty."
 fi
 
 # delete output from previous run
