@@ -10,6 +10,13 @@ import exceptions.TaskException;
 import storage.SaveFileIO;
 import tasks.parser.TaskDateTimeParser;
 
+/**
+ * This class manages the list of tasks.
+ * It provides functionalities to add, delete, mark/unmark tasks.
+ * It will also load/save them to a file.
+ *
+ * @author Yashvan
+ */
 public class TaskManager {
     private ArrayList<Task> taskList = new ArrayList<>();
 

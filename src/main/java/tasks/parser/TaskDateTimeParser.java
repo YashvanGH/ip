@@ -1,5 +1,13 @@
 package tasks.parser;
 
+/**
+ * This class provides methods to parse and format task-related date and time strings.
+ * It is primarily used to convert user inputs or saved task data into standardised
+ * formats suitable for creating instances of the {@link tasks.Deadlines Deadlines}
+ * and {@link tasks.Events Events} classes.
+ *
+ * @author Yashvan
+ */
 public class TaskDateTimeParser {
 
     /**
@@ -81,8 +89,8 @@ public class TaskDateTimeParser {
         String endTime = convertTo24HourFormat(toParts[1]);
 
         // Create the input
-        String eventInput = "event " + description + " /from " + startDate + " " + startTime +
-                " /to " + endDate + " " + endTime + " /priority " + priority;
+        String eventInput = "event " + description + " /from " + startDate + " " + startTime
+                + " /to " + endDate + " " + endTime + " /priority " + priority;
 
         return eventInput;
     }
@@ -122,7 +130,7 @@ public class TaskDateTimeParser {
     private static String convertTo24HourFormat(String time) {
         boolean isPM = time.toLowerCase().endsWith("pm");
         // This gets hours and minutes from 12-hour format
-        String[] timeParts = time.substring(0,time.length() - 2).trim().split(":");
+        String[] timeParts = time.substring(0, time.length() - 2).trim().split(":");
         int hours = Integer.parseInt(timeParts[0]);
         int minutes = Integer.parseInt(timeParts[1]);
 

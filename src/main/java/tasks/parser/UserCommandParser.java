@@ -1,5 +1,7 @@
 package tasks.parser;
 
+import java.io.IOException;
+
 import exceptions.MarkException;
 import exceptions.TaskException;
 import tasks.Deadlines;
@@ -8,8 +10,14 @@ import tasks.TaskManager;
 import tasks.Todo;
 import ui.Greeting;
 
-import java.io.IOException;
-
+/**
+ * This class provides methods to parse user-related input. It is primarily used to
+ * execute commands based on the given user input to add, create, mark, unmark and view
+ * instances of the {@link tasks.Todo Todo}, {@link tasks.Deadlines Deadlines}
+ * and {@link tasks.Events Events} classes.
+ *
+ * @author Yashvan
+ */
 public class UserCommandParser {
 
     /**

@@ -1,10 +1,15 @@
-import tasks.*;
-import tasks.parser.UserCommandParser;
-import ui.Greeting;
-
 import java.io.IOException;
 import java.util.Scanner;
 
+import tasks.TaskManager;
+import tasks.parser.UserCommandParser;
+import ui.Greeting;
+
+/**
+ * This class handles the main logic for interaction.
+ *
+ * @author Yashvan
+ */
 public class Tyrese {
     public static void main(String[] args) {
         TaskManager taskManager = new TaskManager();

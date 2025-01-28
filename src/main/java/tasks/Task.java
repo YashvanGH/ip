@@ -1,6 +1,12 @@
 package tasks;
 
-public class Task {
+/**
+ * This abstract class represents a task.
+ * It is inherited by {@link Todo}, {@link Deadlines} and {@link Events}.
+ *
+ * @author Yashvan
+ */
+public abstract class Task {
     private String description;
     private TaskPriority taskPriority;
     private boolean isDone;
