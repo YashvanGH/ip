@@ -1,16 +1,16 @@
 package tasks;
 
-import exceptions.TaskException;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+import exceptions.TaskException;
+
 public class Events extends Task {
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
     private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("d MMMM yyyy, h:mma");
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 
     /**
      * Private constructor for the Deadlines class.
@@ -40,8 +40,8 @@ public class Events extends Task {
         // Parts needs to have 2 elements in array if no whitespace
         // Parts[1] needs to contain " /to " as we haven't used it as a 'spliter' to split from yet
         if (parts.length < 2 || !parts[1].contains(" /to ")) {
-            throw new TaskException("PLEASE BRUH! Use: event <description> /from <start> /to " +
-                    "<end> /priority <LOW|MEDIUM|HIGH|URGENT> ._.");
+            throw new TaskException("PLEASE BRUH! Use: event <description> /from <start> /to "
+                    + "<end> /priority <LOW|MEDIUM|HIGH|URGENT> ._.");
         }
 
         String[] timeParts = parts[1].split(" /to ");
@@ -74,7 +74,8 @@ public class Events extends Task {
         }
 
         // Parse date-time strings
-        LocalDateTime startTime, endTime;
+        LocalDateTime startTime;
+        LocalDateTime endTime;
         try {
             startTime = LocalDateTime.parse(startTimeString, INPUT_FORMATTER);
             endTime = LocalDateTime.parse(endTimeString, INPUT_FORMATTER);
