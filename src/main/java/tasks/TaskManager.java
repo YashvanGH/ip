@@ -311,4 +311,47 @@ public class TaskManager {
 
         SaveFileIO.writeToSaveFile(unmarkedTasks);
     }
+
+    /**
+     * Finds any matching tasks.
+     *
+     * @param input The task to find in the list.
+     */
+    public void findTasks(String input) throws TaskException {
+
+        if (input.length() <= 5) {
+            throw new TaskException("Watchu trying to find? The lost ark? Enter a description!");
+        }
+
+        String description = input.substring(5).trim();
+
+        if (description.isEmpty()) {
+            throw new TaskException("Watchu trying to find? The lost ark? Enter a description!");
+        }
+
+        int index = 1;
+        boolean isMatch = false;
+
+        for (Task task : taskList) {
+            if (task.getDescription().contains(description)) {
+                isMatch = true;
+                break;
+            }
+        }
+
+        if (!isMatch) {
+            throw new TaskException("Weird... It's almost as if the task doesn't exist...");
+        }
+
+        System.out.println("\t______________________________________________________________________________________");
+        System.out.println("\tHere are the matching tasks in your list:");
+        for (Task task : taskList) {
+            if (task.getDescription().contains(description)) {
+                System.out.println("\t " + index + ": " + task);
+                index++;
+            }
+        }
+
+        System.out.println("\t______________________________________________________________________________________");
+    }
 }

@@ -59,6 +59,9 @@ public class UserCommandParser {
                 Events eventTask = Events.create(input);
                 taskManager.addTask(eventTask);
 
+            } else if (input.startsWith("find")) {
+                taskManager.findTasks(input);
+
             } else {
                 System.out.println(
                         "\t______________________________________________________________________________________\n"

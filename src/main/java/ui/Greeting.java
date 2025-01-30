@@ -34,6 +34,7 @@ public class Greeting {
         System.out.println("|event <description> /from <D/M/YYYY HHmm> /to <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>: "
                 + "Adds an event with a start and end time");
         System.out.println("|delete <task number>: Deletes task no.x");
+        System.out.println("|find <description>: Finds task with matching description");
         System.out.println("|list: Displays all tasks added");
         System.out.println("|mark <task number>: Marks task no.x as done");
         System.out.println("|unmark <task number>: Unmarks task no.x");

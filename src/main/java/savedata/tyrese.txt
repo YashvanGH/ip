@@ -1,2 +1,0 @@
-[T][ ] play (Priority: Low)
-[T][ ] read book (Priority: Low)
