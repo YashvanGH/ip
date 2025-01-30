@@ -9,6 +9,7 @@ unmark
 delete 1
 delete "nan"
 delete
+find
 todo
 deadline
 event
@@ -19,6 +20,7 @@ todo Procrastinate my iP /priority LOW
 deadline CS2103T /by 24/01/2025 1800 /priority MEDIUM
 event ST1131 Quiz 1 /from 20/1/2025 0600 /to 26/1/2025 0600 /priority HIGH
 todo Invalid Priority /priority zaza
+find Not one of the tasks
 list
 mark 1
 mark 2
@@ -32,4 +34,8 @@ delete 2
 list
 delete 100
 gibberish
+delete 1
+delete 1
+delete 1
+delete 1
 exit

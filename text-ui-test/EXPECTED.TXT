@@ -1,12 +1,13 @@
 Here's what I can do for now!
 |todo <description> /priority <LOW|MEDIUM|HIGH|URGENT>: Adds a todo without a specific date/time
-|deadline <description> /by <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>: Adds a task with a deadline
+|deadline <description> /by <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>:Adds a task with a deadline
 |event <description> /from <D/M/YYYY HHmm> /to <D/M/YYYY HHmm> <LOW|MEDIUM|HIGH|URGENT>: Adds an event with a start and end time
+|delete <task number>: Deletes task no.x
+|find <description>: Finds task with matching description
 |list: Displays all tasks added
 |mark <task number>: Marks task no.x as done
 |unmark <task number>: Unmarks task no.x
 |exit: Exits the application
-
 	______________________________________________________________________________________
 	 Yo! You have nothing in your task list (for now)
 	______________________________________________________________________________________
@@ -45,6 +46,10 @@ Here's what I can do for now!
 
 	______________________________________________________________________________________
 	 Boh... Use: delete <task_number>
+	______________________________________________________________________________________
+
+	______________________________________________________________________________________
+	 Watchu trying to find? The lost ark? Enter a description!
 	______________________________________________________________________________________
 
 	______________________________________________________________________________________
@@ -97,6 +102,10 @@ Here's what I can do for now!
 
 	______________________________________________________________________________________
 	 Get your priorities in order! Use: LOW, MEDIUM, HIGH, or URGENT!
+	______________________________________________________________________________________
+
+	______________________________________________________________________________________
+	 Weird... It's almost as if the task doesn't exist...
 	______________________________________________________________________________________
 
 	______________________________________________________________________________________
@@ -189,6 +198,30 @@ Here's what I can do for now!
 
 	______________________________________________________________________________________
 	 Whatchu talking about bruh? Type 'help' if you need it!
+	______________________________________________________________________________________
+
+	______________________________________________________________________________________
+	 I've removed this from tasks:
+	  [D][ ] CS2103T (Priority: Low) (by: 24 January 2025, 6:00pm)
+	 Cool. You have 3 tasks now. Anything else?
+	______________________________________________________________________________________
+
+	______________________________________________________________________________________
+	 I've removed this from tasks:
+	  [T][ ] Procrastinate my iP (Priority: Low)
+	 Cool. You have 2 tasks now. Anything else?
+	______________________________________________________________________________________
+
+	______________________________________________________________________________________
+	 I've removed this from tasks:
+	  [D][ ] CS2103T (Priority: Medium) (by: 24 January 2025, 6:00pm)
+	 Cool. You have 1 tasks now. Anything else?
+	______________________________________________________________________________________
+
+	______________________________________________________________________________________
+	 I've removed this from tasks:
+	  [E][ ] ST1131 Quiz 1 (Priority: High) (from: 20 January 2025, 6:00am to: 26 January 2025, 6:00am)
+	 Cool. You have 0 tasks now. Anything else?
 	______________________________________________________________________________________
 
 	______________________________________________________________________________________
