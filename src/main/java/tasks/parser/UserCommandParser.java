@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import exceptions.MarkException;
 import exceptions.TaskException;
+import javafx.application.Platform;
 import tasks.Deadlines;
 import tasks.Events;
 import tasks.TaskManager;
@@ -27,54 +28,55 @@ public class UserCommandParser {
      * @param taskManager The TaskManager class used to execute the input.
      * @param isRun The condition to continue running the program.
      */
-    public static void parseCommand(String input, TaskManager taskManager, boolean[] isRun) {
+    public static String parseCommand(String input, TaskManager taskManager, boolean[] isRun) {
         try {
-            if (input.equals("exit")) {
+            if (input.equals("hi")) {
+                return Greeting.greet();
+
+            } else if (input.equals("exit")) {
                 isRun[0] = false;
+                Platform.exit();
+                return "";
 
             } else if (input.equals("help")) {
-                Greeting.help();
+                return Greeting.help();
 
             } else if (input.equals("list")) {
-                taskManager.displayList();
+                return taskManager.displayList();
 
             } else if (input.startsWith("delete")) {
-                TaskManager.deleteTask(input, taskManager);
+                return TaskManager.deleteTask(input, taskManager);
 
             } else if (input.startsWith("mark")) {
-                TaskManager.markTask(input, taskManager);
+                return TaskManager.markTask(input, taskManager);
 
             } else if (input.startsWith("unmark")) {
-                TaskManager.unmarkTask(input, taskManager);
+                return TaskManager.unmarkTask(input, taskManager);
 
             } else if (input.startsWith("todo")) {
                 Todo todoTask = Todo.create(input);
-                taskManager.addTask(todoTask);
+                return taskManager.addTask(todoTask);
 
             } else if (input.startsWith("deadline")) {
                 Deadlines deadlineTask = Deadlines.create(input);
-                taskManager.addTask(deadlineTask);
+                return taskManager.addTask(deadlineTask);
 
             } else if (input.startsWith("event")) {
                 Events eventTask = Events.create(input);
-                taskManager.addTask(eventTask);
+                return taskManager.addTask(eventTask);
 
             } else if (input.startsWith("find")) {
-                taskManager.findTasks(input);
+                return taskManager.findTasks(input);
 
             } else {
-                System.out.println(
-                        "\t______________________________________________________________________________________\n"
-                        + "\t Whatchu talking about bruh? Type 'help' if you need it!"
-                        + "\n\t______________________________________________________________________________________\n"
-                );
+                return "______________________________________________________________________________________\n"
+                        + "Whatchu talking about bruh? Type 'help' if you need it!"
+                        + "\n______________________________________________________________________________________\n";
             }
         } catch (NumberFormatException | MarkException | TaskException | IOException e) {
-            System.out.println(
-                    "\t______________________________________________________________________________________\n"
-                    + "\t " + e.getMessage()
-                    + "\n\t______________________________________________________________________________________\n"
-            );
+            return "______________________________________________________________________________________\n"
+                    + e.getMessage()
+                    + "\n______________________________________________________________________________________\n";
         }
     }
 }

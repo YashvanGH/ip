@@ -1,0 +1,36 @@
+/* User speech bubble - Matching the "Send" button's color */
+.label {
+    -fx-background-color: linear-gradient(to bottom right, #D35400, #FFA000); /* Burnt orange to deep yellow-orange */
+    -fx-border-color: #B34700; /* Strong deep orange border */
+    -fx-border-width: 2px;
+    -fx-background-radius: 1em 1em 0 1em;
+    -fx-border-radius: 1em 1em 0 1em;
+    -fx-padding: 10px;
+    -fx-text-fill: black; /* Black text */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Bot speech bubble - Keeps the dark gray style */
+.reply-label {
+    -fx-background-color: linear-gradient(to bottom right, #d35400, #ffa000); /* Dark gray */
+    -fx-border-color: #b34700; /* Slightly lighter dark border */
+    -fx-border-width: 2px;
+    -fx-background-radius: 1em 1em 1em 0;
+    -fx-border-radius: 1em 1em 1em 0;
+    -fx-padding: 10px;
+    -fx-text-fill: #060606; /* White text for contrast */
+}
+
+/* Profile picture styling */
+#displayPicture {
+    /* Shadow effect on image */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 5, 5);
+
+    /* Change size of image */
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+
+    /* Rotate image clockwise by degrees */
+    -fx-rotate: 0;
+}
