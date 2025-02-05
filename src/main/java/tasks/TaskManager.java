@@ -30,19 +30,17 @@ public class TaskManager {
      *
      * @param task The task to add to the list.
      */
-    public void addTask(Task task) throws TaskException, IOException {
+    public String addTask(Task task) throws TaskException, IOException {
         if (task.isEmpty()) {
             throw new TaskException("Hey! The description of your tasks cannot be empty!");
         } else {
             taskList.add(task);
 
-            System.out.println(
-                    "\t______________________________________________________________________________________\n"
-                    + "\t I've added this to tasks:\n\t "
+            return "______________________________________________________________________________________\n"
+                    + "I've added this to tasks:\n"
                     + task
-                    + "\n\t Cool. You have " + taskList.size() + " tasks now. Anything else?\n"
-                    + "\t______________________________________________________________________________________\n"
-            );
+                    + "\nCool. You have " + taskList.size() + " tasks now. Anything else?\n"
+                    + "______________________________________________________________________________________\n";
         }
     }
 
@@ -52,7 +50,7 @@ public class TaskManager {
      * @param index The index of the task to be deleted.
      * @throws TaskException If the task list is empty or the index is invalid.
      */
-    private void deleteTask(int index) throws TaskException {
+    private String deleteTask(int index) throws TaskException {
         if (taskList.isEmpty()) {
             throw new TaskException("Can't delete work if you don't have work to do!");
         }
@@ -62,14 +60,11 @@ public class TaskManager {
         }
 
         Task removedTask = taskList.remove(index);
-        System.out.println(
-                "\t______________________________________________________________________________________\n"
-                + "\t I've removed this from tasks:\n"
-                + "\t  "
+        return "______________________________________________________________________________________\n"
+                + "I've removed this from tasks:\n"
                 + removedTask
-                + "\n\t Cool. You have " + taskList.size() + " tasks now. Anything else?\n"
-                + "\t______________________________________________________________________________________\n"
-        );
+                + "\nCool. You have " + taskList.size() + " tasks now. Anything else?\n"
+                + "______________________________________________________________________________________\n";
     }
 
     /**
@@ -80,7 +75,7 @@ public class TaskManager {
      * @throws NumberFormatException If the task number is missing, empty, or invalid.
      * @throws TaskException         If the task list is empty or the task number is invalid.
      */
-    public static void deleteTask(String input, TaskManager taskManager) throws NumberFormatException, TaskException {
+    public static String deleteTask(String input, TaskManager taskManager) throws NumberFormatException, TaskException {
         if (input.length() <= 7) {
             throw new NumberFormatException("Boh... Use: delete <task_number>");
         }
@@ -97,7 +92,7 @@ public class TaskManager {
             throw new NumberFormatException("Does that look like a number to you bruh? Enter a valid number!");
         }
 
-        taskManager.deleteTask(indexToDelete);
+        return taskManager.deleteTask(indexToDelete);
     }
 
     /**
@@ -105,7 +100,7 @@ public class TaskManager {
      *
      * @param index The index at which the task should be marked as done.
      */
-    private void markTask(int index) throws MarkException, TaskException {
+    private String markTask(int index) throws MarkException, TaskException {
         // Check if the task list is empty
         if (taskList.isEmpty()) {
             throw new MarkException("You have no tasks to mark. Look's like someone's lazing around!");
@@ -118,8 +113,7 @@ public class TaskManager {
 
         // Mark the task as done
         taskList.get(index).markTask();
-        System.out.println("\tNice! I've marked task " + (index + 1) + " as done!");
-        displayList();
+        return "Nice! I've marked task " + (index + 1) + " as done!\n" + displayList();
     }
 
     /**
@@ -132,7 +126,7 @@ public class TaskManager {
      * @throws MarkException         If the specified task does not exist.
      * @throws TaskException         For other task-related errors.
      */
-    public static void markTask(String input, TaskManager taskManager) throws NumberFormatException, MarkException,
+    public static String markTask(String input, TaskManager taskManager) throws NumberFormatException, MarkException,
             TaskException, IOException {
         if (input.length() <= 5) {
             throw new NumberFormatException("Boh... Use: mark <task_number>");
@@ -148,7 +142,7 @@ public class TaskManager {
             throw new NumberFormatException("Does that look like a number to you bruh? Enter a valid number!");
         }
 
-        taskManager.markTask(indexToMark);
+        return taskManager.markTask(indexToMark);
     }
 
     /**
@@ -156,7 +150,7 @@ public class TaskManager {
      *
      * @param index The index at which the task should be marked as undone.
      */
-    private void unmarkTask(int index) throws MarkException, TaskException {
+    private String unmarkTask(int index) throws MarkException, TaskException {
         // Check if the task list is empty
         if (taskList.isEmpty()) {
             throw new MarkException("You have no tasks to unmark. Look's like someone's lazing around!");
@@ -169,8 +163,7 @@ public class TaskManager {
 
         // Mark task as undone
         taskList.get(index).unmarkTask();
-        System.out.println("\tAn uno reverse? Task " + (index + 1) + " has been unmarked!");
-        displayList();
+        return "An uno reverse? Task " + (index + 1) + " has been unmarked!\n" + displayList();
     }
 
     /**
@@ -183,7 +176,7 @@ public class TaskManager {
      * @throws MarkException         If the specified task does not exist.
      * @throws TaskException         For other task-related errors.
      */
-    public static void unmarkTask(String input, TaskManager taskManager) throws NumberFormatException, MarkException,
+    public static String unmarkTask(String input, TaskManager taskManager) throws NumberFormatException, MarkException,
             TaskException {
         if (input.length() <= 7) {
             throw new NumberFormatException("Boh... Use: unmark <task_number>");
@@ -198,23 +191,25 @@ public class TaskManager {
         } catch (NumberFormatException e) {
             throw new NumberFormatException("Does that look like a number to you bruh? Enter a valid number!");
         }
-        taskManager.unmarkTask(indexToUnmark);
+        return taskManager.unmarkTask(indexToUnmark);
     }
 
     /**
      * Display all current tasks in the list.
      */
-    public void displayList() throws TaskException {
+    public String displayList() throws TaskException {
         if (this.taskList.isEmpty()) {
             throw new TaskException("Yo! You have nothing in your task list (for now)");
         }
 
-        System.out.println("\t______________________________________________________________________________________");
+        StringBuilder sb = new StringBuilder();
+        sb.append("______________________________________________________________________________________\n");
+        sb.append("Here are your tasks:\n");
         for (int i = 0; i < taskList.size(); i++) {
-            System.out.println("\t " + (i + 1) + ": " + taskList.get(i).toString());
+            sb.append((i + 1)).append(": ").append(taskList.get(i)).append("\n");
         }
-        System.out.println("\t_____________________________________________"
-                + "_________________________________________\n");
+        sb.append("______________________________________________________________________________________\n");
+        return sb.toString();
     }
 
     /**
@@ -317,7 +312,7 @@ public class TaskManager {
      *
      * @param input The task to find in the list.
      */
-    public void findTasks(String input) throws TaskException {
+    public String findTasks(String input) throws TaskException {
 
         if (input.length() <= 5) {
             throw new TaskException("Watchu trying to find? The lost ark? Enter a description!");
@@ -329,29 +324,24 @@ public class TaskManager {
             throw new TaskException("Watchu trying to find? The lost ark? Enter a description!");
         }
 
-        int index = 1;
-        boolean isMatch = false;
-
+        ArrayList<Task> foundTasks = new ArrayList<>();
         for (Task task : taskList) {
             if (task.getDescription().contains(description)) {
-                isMatch = true;
-                break;
+                foundTasks.add(task);
             }
         }
 
-        if (!isMatch) {
-            throw new TaskException("Weird... It's almost as if the task doesn't exist...");
+        if (foundTasks.isEmpty()) {
+            return "Weird... It's almost as if that task doesn't exist...";
         }
 
-        System.out.println("\t______________________________________________________________________________________");
-        System.out.println("\tHere are the matching tasks in your list:");
-        for (Task task : taskList) {
-            if (task.getDescription().contains(description)) {
-                System.out.println("\t " + index + ": " + task);
-                index++;
-            }
+        StringBuilder sb = new StringBuilder();
+        sb.append("______________________________________________________________________________________\n");
+        sb.append("Here are the matching tasks:\n");
+        for (int i = 0; i < foundTasks.size(); i++) {
+            sb.append((i + 1)).append(": ").append(foundTasks.get(i)).append("\n");
         }
-
-        System.out.println("\t______________________________________________________________________________________");
+        sb.append("______________________________________________________________________________________\n");
+        return sb.toString();
     }
 }
