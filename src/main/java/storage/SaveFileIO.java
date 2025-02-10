@@ -23,11 +23,9 @@ public class SaveFileIO {
      * @throws IOException If tyrese.txt cannot be written to.
      */
     public static void writeToSaveFile(ArrayList<Task> taskList) throws IOException {
-
         File file = getFile();
 
         FileWriter fw;
-        // Try to write to the file
         try {
             fw = new FileWriter(file);
             for (Task task : taskList) {
@@ -48,15 +46,14 @@ public class SaveFileIO {
      */
     private static File getFile() throws IOException {
         File directory = new File(DIRECTORY);
-        // Parent, Child as arguments
         File file = new File(directory, FILE_NAME);
 
-        // Ensure directory exists
+        // This ensures directory exists by attempting to create it
         if (!directory.exists() && !directory.mkdirs()) {
             throw new IOException("Sorry mans, I can't create the savedata directory...");
         }
 
-        // Ensure file exists
+        // This ensures file exists by attempting to create it
         if (!file.exists() && !file.createNewFile()) {
             throw new IOException("Sorry mans, I can't create the savedata file...");
         }

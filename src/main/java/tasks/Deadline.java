@@ -39,9 +39,7 @@ public class Deadline extends Task {
      */
     public static Deadline create(String input) throws TaskException {
         String[] parts = input.split(" /by ");
-        // Ensure "deadline" has valid format
-        // Parts needs to have 2 elements in array if no whitespace
-        // Considered whitespace if task
+
         if (parts.length < 2) {
             throw new TaskException("PLEASE BRUH! Use: deadline <description> /by <d/M/yyyy HHmm> "
                     + "/priority <LOW|MEDIUM|HIGH|URGENT> ._.");
@@ -80,6 +78,7 @@ public class Deadline extends Task {
      */
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + this.deadline.format(OUTPUT_FORMATTER) + ")";
+        return "[D]" + super.toString()
+                + " (by: " + this.deadline.format(OUTPUT_FORMATTER) + ")";
     }
 }

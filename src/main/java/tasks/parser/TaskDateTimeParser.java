@@ -20,15 +20,8 @@ public class TaskDateTimeParser {
      * @return Parsed input for Deadline class
      */
     public static String deadlineParser(String line) {
-        // Extract description
-        int startOfDescription = line.indexOf("] ") + 2;
-        int endOfDescription = line.indexOf(" (Priority:");
-        String description = line.substring(startOfDescription, endOfDescription).trim();
-
-        // Extract priority
-        int startOfPriority = line.indexOf("(Priority:") + 10;
-        int endOfPriority = line.indexOf(")", startOfPriority);
-        String priority = line.substring(startOfPriority, endOfPriority).trim().toUpperCase();
+        String description = extractDescription(line);
+        String priority = extractPriority(line);
 
         // Extract deadline
         int startOfDeadline = line.indexOf("(by:") + 5;
@@ -47,7 +40,6 @@ public class TaskDateTimeParser {
         // Convert time to "HHmm"
         String formattedTime = convertTo24HourFormat(timePart);
 
-        // Create the input
         String deadlineInput = "deadline " + description + " /by " + formattedDate + " " + formattedTime
                 + " /priority " + priority;
 
@@ -61,15 +53,8 @@ public class TaskDateTimeParser {
      * @return Parsed input for Event class
      */
     public static String eventParser(String line) {
-        // Extract description
-        int startOfDescription = line.indexOf("] ") + 2;
-        int endOfDescription = line.indexOf(" (Priority:");
-        String description = line.substring(startOfDescription, endOfDescription).trim();
-
-        // Extract priority
-        int startOfPriority = line.indexOf("(Priority:") + 10;
-        int endOfPriority = line.indexOf(")", startOfPriority);
-        String priority = line.substring(startOfPriority, endOfPriority).trim().toUpperCase();
+        String description = extractDescription(line);
+        String priority = extractPriority(line);
 
         // Extract "from" time
         int startOfFrom = line.indexOf("(from:") + 7;
@@ -91,7 +76,6 @@ public class TaskDateTimeParser {
         String endDate = convertToDate(toParts[0]);
         String endTime = convertTo24HourFormat(toParts[1]);
 
-        // Create the input
         String eventInput = "event " + description + " /from " + startDate + " " + startTime
                 + " /to " + endDate + " " + endTime + " /priority " + priority;
 
@@ -118,10 +102,8 @@ public class TaskDateTimeParser {
         case "october": return "10";
         case "november": return "11";
         case "december": return "12";
-        default:
+        default: return "";
         }
-
-        return "";
     }
 
     /**
@@ -157,6 +139,33 @@ public class TaskDateTimeParser {
         String day = dateParts[0];
         String month = convertMonthToNumber(dateParts[1]);
         String year = dateParts[2];
+
         return day + "/" + month + "/" + year;
+    }
+
+    /**
+     *
+     *
+     */
+    private static String extractDescription(String line) {
+        // Extract description
+        int startOfDescription = line.indexOf("] ") + 2;
+        int endOfDescription = line.indexOf(" (Priority:");
+        String description = line.substring(startOfDescription, endOfDescription).trim();
+
+        return description;
+    }
+
+    /**
+     *
+     *
+     */
+    private static String extractPriority(String line) {
+        // Extract priority
+        int startOfPriority = line.indexOf("(Priority:") + 10;
+        int endOfPriority = line.indexOf(")", startOfPriority);
+        String priority = line.substring(startOfPriority, endOfPriority).trim().toUpperCase();
+
+        return priority;
     }
 }

@@ -261,9 +261,6 @@ public class TaskManager {
 
             // Parsing input to allow creation of subtypes of Task objects
             String description = line.substring(line.indexOf("[ ]") + 4, line.indexOf("(Priority:")).trim();
-            String priority = line.substring(line.indexOf("Priority:") + 10,
-                    line.indexOf(")",
-                    line.indexOf("Priority:"))).trim();
             switch (taskType) {
             case "T": // Todo
                 String todoPriority = line.substring(line.indexOf("Priority:") + 10, line.indexOf(")")).trim();

@@ -29,7 +29,6 @@ public class Todo extends Task {
      * @throws TaskException If the input format is invalid.
      */
     public static Todo create(String input) throws TaskException {
-        // Trim to remove any whitespace for easier exception handling
         String[] parts = input.split(" /priority ");
         String todoTask = parts[0].substring(4).trim();
         if (todoTask.isEmpty()) {

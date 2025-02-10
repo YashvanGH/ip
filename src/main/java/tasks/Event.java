@@ -42,9 +42,7 @@ public class Event extends Task {
      */
     public static Event create(String input) throws TaskException {
         String[] parts = input.split(" /from ");
-        // Ensure "event" has a valid format
-        // Parts needs to have 2 elements in array if no whitespace
-        // Parts[1] needs to contain " /to " as we haven't used it as a 'spliter' to split from yet
+
         if (parts.length < 2 || !parts[1].contains(" /to ")) {
             throw new TaskException("PLEASE BRUH! Use: event <description> /from <start> /to "
                     + "<end> /priority <LOW|MEDIUM|HIGH|URGENT> ._.");
@@ -57,17 +55,7 @@ public class Event extends Task {
 
         String eventTask = parts[0].substring(5).trim();
         String startTimeString = timeParts[0].trim();
-        String endTimeAndPriority = timeParts[1];
-
-        if (eventTask.isEmpty()) {
-            throw new TaskException("Watchu trying to describe bro? An abstract concept? Write a description!");
-        }
-        if (startTimeString.isEmpty() || endTimeAndPriority.isEmpty()) {
-            throw new TaskException("Sick event man! Just kidding, start and end times can't be empty.");
-        }
-
-        // Parse end time and priority
-        String[] endTimePriority = endTimeAndPriority.split(" /priority ");
+        String[] endTimePriority = getTimePriority(timeParts, eventTask, startTimeString);
         String endTimeString = endTimePriority[0].trim();
 
         TaskPriority taskPriority;
@@ -92,6 +80,21 @@ public class Event extends Task {
         }
 
         return new Event(startTime, endTime, eventTask, taskPriority);
+    }
+
+    private static String[] getTimePriority(String[] timeParts, String eventTask, String startTimeString)
+            throws TaskException {
+        String endTimeAndPriority = timeParts[1];
+
+        if (eventTask.isEmpty()) {
+            throw new TaskException("Watchu trying to describe bro? An abstract concept? Write a description!");
+        }
+        if (startTimeString.isEmpty() || endTimeAndPriority.isEmpty()) {
+            throw new TaskException("Sick event man! Just kidding, start and end times can't be empty.");
+        }
+
+        // Parse end time and priority
+        return endTimeAndPriority.split(" /priority ");
     }
 
     /**
