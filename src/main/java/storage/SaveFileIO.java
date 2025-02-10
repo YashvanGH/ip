@@ -13,7 +13,7 @@ import tasks.Task;
  * @author Yashvan
  */
 public class SaveFileIO {
-    private static final String DIRECTORY = "src/main/java/savedata";
+    private static final String DIRECTORY = System.getProperty("user.dir") + File.separator + "savedata";
     private static final String FILE_NAME = "tyrese.txt";
 
     /**

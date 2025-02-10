@@ -1,20 +1,23 @@
 package tasks.parser;
 
+import tasks.Deadline;
+import tasks.Event;
+
 /**
  * This class provides methods to parse and format task-related date and time strings.
  * It is primarily used to convert user inputs or saved task data into standardised
- * formats suitable for creating instances of the {@link tasks.Deadlines Deadlines}
- * and {@link tasks.Events Events} classes.
+ * formats suitable for creating instances of the {@link Deadline Deadline}
+ * and {@link Event Event} classes.
  *
  * @author Yashvan
  */
 public class TaskDateTimeParser {
 
     /**
-     * Returns the parsed and formatted string to create an instance of the Deadlines class.
+     * Returns the parsed and formatted string to create an instance of the Deadline class.
      *
      * @param line The line used to convert to the command string.
-     * @return Parsed input for Deadlines class
+     * @return Parsed input for Deadline class
      */
     public static String deadlineParser(String line) {
         // Extract description
@@ -52,10 +55,10 @@ public class TaskDateTimeParser {
     }
 
     /**
-     * Returns the parsed and formatted string to create an instance of the Events class.
+     * Returns the parsed and formatted string to create an instance of the Event class.
      *
      * @param line The line used to convert to the command string.
-     * @return Parsed input for Events class
+     * @return Parsed input for Event class
      */
     public static String eventParser(String line) {
         // Extract description

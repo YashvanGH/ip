@@ -2,8 +2,8 @@ package tasks;
 
 /**
  * This enums represents TaskPriority.
- * It allows any of the instances of {@link Todo}, {@link Deadlines}
- * and {@link Events} to be assigned a priority.
+ * It allows any of the instances of {@link Todo}, {@link Deadline}
+ * and {@link Event} to be assigned a priority.
  *
  * @author Yashvan
  */

@@ -7,17 +7,17 @@ import org.junit.jupiter.api.Test;
 
 import exceptions.TaskException;
 
-public class DeadlinesTest {
+public class DeadlineTest {
     @Test
     public void testCreateValidDeadline() throws TaskException {
-        Deadlines deadline = Deadlines.create("deadline return book /by 2/12/2019 1800 /priority MEDIUM");
+        Deadline deadline = Deadline.create("deadline return book /by 2/12/2019 1800 /priority MEDIUM");
         assertEquals("[D][ ] return book (Priority: Medium) (by: 2 December 2019, 6:00pm)",
                 deadline.toString());
     }
 
     @Test
     public void testCreateDeadlineWithoutPriorityUsesDefault() throws TaskException {
-        Deadlines deadline = Deadlines.create("deadline return book /by 2/12/2019 1800");
+        Deadline deadline = Deadline.create("deadline return book /by 2/12/2019 1800");
         assertEquals("[D][ ] return book (Priority: Low) (by: 2 December 2019, 6:00pm)",
                 deadline.toString());
     }
@@ -25,7 +25,7 @@ public class DeadlinesTest {
     @Test
     public void testCreateDeadlineWithInvalidDateThrowsException() {
         Exception exception = assertThrows(TaskException.class, () -> {
-            Deadlines.create("deadline return book /by 35/12/2019 1800");
+            Deadline.create("deadline return book /by 35/12/2019 1800");
         });
         assertEquals("Invalid date-time format bro! Use: d/M/yyyy HHmm.", exception.getMessage());
     }
@@ -33,7 +33,7 @@ public class DeadlinesTest {
     @Test
     public void testCreateDeadlineWithMissingDateThrowsException() {
         Exception exception = assertThrows(TaskException.class, () -> {
-            Deadlines.create("deadline return book /priority HIGH");
+            Deadline.create("deadline return book /priority HIGH");
         });
         assertEquals("PLEASE BRUH! Use: deadline <description> /by <d/M/yyyy HHmm> /priority "
                 + "<LOW|MEDIUM|HIGH|URGENT> ._.", exception.getMessage());

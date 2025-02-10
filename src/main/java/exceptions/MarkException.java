@@ -1,9 +1,12 @@
 package exceptions;
 
+import tasks.Deadline;
+import tasks.Event;
+
 /**
  * This class handles the exceptions thrown when creating instances of the
- * in the {@link tasks.Todo Todo}, {@link tasks.Deadlines Deadlines}
- * and {@link tasks.Events Events} classes.
+ * in the {@link tasks.Todo Todo}, {@link Deadline Deadline}
+ * and {@link Event Event} classes.
  *
  * @author Yashvan
  */

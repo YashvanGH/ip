@@ -12,32 +12,32 @@ import exceptions.TaskException;
  *
  * @author Yashvan
  */
-public class Deadlines extends Task {
+public class Deadline extends Task {
     private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("d MMMM yyyy, h:mma");
     private LocalDateTime deadline;
 
     /**
-     * Private constructor for the Deadlines class.
+     * Private constructor for the Deadline class.
      *
      * @param description This is a description of what the deadline task should be.
      * @param deadline This is when the task needs to be completed by.
      * @param taskPriority This is the priority of the task.
      */
-    private Deadlines(String description, LocalDateTime deadline, TaskPriority taskPriority) {
+    private Deadline(String description, LocalDateTime deadline, TaskPriority taskPriority) {
         super(description, taskPriority);
         this.deadline = deadline;
     }
 
     /**
-     * Creates an instance of Deadlines.
-     * A factory method to parse input and create a Deadlines object.
+     * Creates an instance of Deadline.
+     * A factory method to parse input and create a Deadline object.
      *
      * @param input The input string for the deadline task.
-     * @return A new Deadlines object.
+     * @return A new Deadline object.
      * @throws TaskException If the input format is invalid.
      */
-    public static Deadlines create(String input) throws TaskException {
+    public static Deadline create(String input) throws TaskException {
         String[] parts = input.split(" /by ");
         // Ensure "deadline" has valid format
         // Parts needs to have 2 elements in array if no whitespace
@@ -70,7 +70,7 @@ public class Deadlines extends Task {
             throw new TaskException("Get your priorities in order! Use: LOW, MEDIUM, HIGH, or URGENT!");
         }
 
-        return new Deadlines(deadlineTask, deadline, taskPriority);
+        return new Deadline(deadlineTask, deadline, taskPriority);
     }
 
     /**

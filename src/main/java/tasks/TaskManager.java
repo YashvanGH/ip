@@ -213,12 +213,13 @@ public class TaskManager {
     }
 
     /**
-     * Loads all tasks from the tyrese.txt.txt file into current user session.
+     * Loads all tasks from the tyrese.txt file into current user session.
      *
      * @throws IOException If the file cannot be found or does not exist.
      */
     public void loadTasks() throws IOException {
-        File file = new File("src/main/java/savedata/tyrese.txt");
+        File file = new File(System.getProperty("user.dir") + File.separator + "savedata"
+                + File.separator + "tyrese.txt");
 
         if (!file.exists() && !file.createNewFile()) {
             throw new IOException("You have no saved tasks! Imma initialise a new list!");
@@ -245,7 +246,7 @@ public class TaskManager {
      * Returns one of the tasks in its original input form to be loaded into the tyrese.txt.txt file.
      *
      * @param line The line that is used to convert to its original input.
-     * @return One of the 3 tasks (Todo, Deadlines, Events).
+     * @return One of the 3 tasks (Todo, Deadline, Event).
      */
     private Task parseTask(String line) {
         try {
@@ -268,13 +269,13 @@ public class TaskManager {
                 String todoPriority = line.substring(line.indexOf("Priority:") + 10, line.indexOf(")")).trim();
                 String todoInput = "todo " + description + " /priority " + todoPriority.toUpperCase();
                 return Todo.create(todoInput);
-            case "D": // Deadlines
+            case "D": // Deadline
                 //[D][ ] play (Priority: Low) (by: 2 March 2014, 6:00pm)
                 String deadlineInput = TaskDateTimeParser.deadlineParser(line);
-                return Deadlines.create(deadlineInput);
-            case "E": // Events
+                return Deadline.create(deadlineInput);
+            case "E": // Event
                 String eventInput = TaskDateTimeParser.eventParser(line);
-                return Events.create(eventInput);
+                return Event.create(eventInput);
             default:
                 return null;
 
@@ -313,7 +314,6 @@ public class TaskManager {
      * @param input The task to find in the list.
      */
     public String findTasks(String input) throws TaskException {
-
         if (input.length() <= 5) {
             throw new TaskException("Watchu trying to find? The lost ark? Enter a description!");
         }

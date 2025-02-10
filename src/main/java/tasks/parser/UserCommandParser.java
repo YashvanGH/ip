@@ -5,8 +5,8 @@ import java.io.IOException;
 import exceptions.MarkException;
 import exceptions.TaskException;
 import javafx.application.Platform;
-import tasks.Deadlines;
-import tasks.Events;
+import tasks.Deadline;
+import tasks.Event;
 import tasks.TaskManager;
 import tasks.Todo;
 import ui.Greeting;
@@ -14,8 +14,8 @@ import ui.Greeting;
 /**
  * This class provides methods to parse user-related input. It is primarily used to
  * execute commands based on the given user input to add, create, mark, unmark and view
- * instances of the {@link tasks.Todo Todo}, {@link tasks.Deadlines Deadlines}
- * and {@link tasks.Events Events} classes.
+ * instances of the {@link tasks.Todo Todo}, {@link Deadline Deadline}
+ * and {@link Event Event} classes.
  *
  * @author Yashvan
  */
@@ -58,11 +58,11 @@ public class UserCommandParser {
                 return taskManager.addTask(todoTask);
 
             } else if (input.startsWith("deadline")) {
-                Deadlines deadlineTask = Deadlines.create(input);
+                Deadline deadlineTask = Deadline.create(input);
                 return taskManager.addTask(deadlineTask);
 
             } else if (input.startsWith("event")) {
-                Events eventTask = Events.create(input);
+                Event eventTask = Event.create(input);
                 return taskManager.addTask(eventTask);
 
             } else if (input.startsWith("find")) {

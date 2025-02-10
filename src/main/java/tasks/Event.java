@@ -12,35 +12,35 @@ import exceptions.TaskException;
  *
  * @author Yashvan
  */
-public class Events extends Task {
+public class Event extends Task {
     private static final DateTimeFormatter INPUT_FORMATTER = DateTimeFormatter.ofPattern("d/M/yyyy HHmm");
     private static final DateTimeFormatter OUTPUT_FORMATTER = DateTimeFormatter.ofPattern("d MMMM yyyy, h:mma");
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
     /**
-     * Private constructor for the Deadlines class.
+     * Private constructor for the Deadline class.
      *
      * @param description This is a description of what the deadline task should be.
      * @param startTime This is when the task starts.
      * @param endTime This is when the task must be completed by.
      * @param taskPriority This is the priority of the task.
      */
-    private Events(LocalDateTime startTime, LocalDateTime endTime, String description, TaskPriority taskPriority) {
+    private Event(LocalDateTime startTime, LocalDateTime endTime, String description, TaskPriority taskPriority) {
         super(description, taskPriority);
         this.startTime = startTime;
         this.endTime = endTime;
     }
 
     /**
-     * Creates an instance of Events.
-     * A factory method to parse input and create an Events object.
+     * Creates an instance of Event.
+     * A factory method to parse input and create an Event object.
      *
      * @param input The input string for the event task.
-     * @return A new Events object.
+     * @return A new Event object.
      * @throws TaskException If the input format is invalid.
      */
-    public static Events create(String input) throws TaskException {
+    public static Event create(String input) throws TaskException {
         String[] parts = input.split(" /from ");
         // Ensure "event" has a valid format
         // Parts needs to have 2 elements in array if no whitespace
@@ -91,7 +91,7 @@ public class Events extends Task {
             throw new TaskException("Invalid date-time format bro! Use: d/M/yyyy HHmm.");
         }
 
-        return new Events(startTime, endTime, eventTask, taskPriority);
+        return new Event(startTime, endTime, eventTask, taskPriority);
     }
 
     /**

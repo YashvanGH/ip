@@ -22,6 +22,7 @@ public class Tyrese extends Application {
     public void start(Stage stage) {
         try {
             // Load the FXML file for the UI
+            System.out.println("GUI is launching...");
             FXMLLoader fxmlLoader = new FXMLLoader(Tyrese.class.getResource("/view/MainWindow.fxml"));
             AnchorPane root = fxmlLoader.load();
             Scene scene = new Scene(root);

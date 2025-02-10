@@ -2,7 +2,7 @@ package tasks;
 
 /**
  * This abstract class represents a task.
- * It is inherited by {@link Todo}, {@link Deadlines} and {@link Events}.
+ * It is inherited by {@link Todo}, {@link Deadline} and {@link Event}.
  *
  * @author Yashvan
  */
