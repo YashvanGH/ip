@@ -29,6 +29,10 @@ public class UserCommandParser {
      * @param isRun The condition to continue running the program.
      */
     public static String parseCommand(String input, TaskManager taskManager, boolean[] isRun) {
+        assert input != null && !input.isBlank() : "Input should not be null or empty";
+        assert taskManager != null : "TaskManager should not be null";
+        assert isRun != null && isRun.length > 0 : "isRun should be a valid boolean array";
+
         try {
             if (input.equals("hi")) {
                 return Greeting.greet();

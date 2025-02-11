@@ -28,6 +28,12 @@ public class Event extends Task {
      */
     private Event(LocalDateTime startTime, LocalDateTime endTime, String description, TaskPriority taskPriority) {
         super(description, taskPriority);
+
+        assert description != null && !description.isBlank() : "Description should not be null or blank";
+        assert startTime != null : "Start time should not be null";
+        assert endTime != null : "End time should not be null";
+        assert taskPriority != null : "TaskPriority should not be null";
+
         this.startTime = startTime;
         this.endTime = endTime;
     }
@@ -41,6 +47,8 @@ public class Event extends Task {
      * @throws TaskException If the input format is invalid.
      */
     public static Event create(String input) throws TaskException {
+        assert input != null && !input.isBlank() : "Input should not be null or empty";
+
         String[] parts = input.split(" /from ");
 
         if (parts.length < 2 || !parts[1].contains(" /to ")) {
@@ -60,6 +68,7 @@ public class Event extends Task {
 
         TaskPriority taskPriority;
         try {
+            assert endTimePriority.length > 1 : "Missing priority, defaulting to LOW";
             taskPriority = (endTimePriority.length > 1)
                     ? TaskPriority.valueOf(endTimePriority[1].toUpperCase())
                     : TaskPriority.LOW;
@@ -84,6 +93,8 @@ public class Event extends Task {
 
     private static String[] getTimePriority(String[] timeParts, String eventTask, String startTimeString)
             throws TaskException {
+        assert timeParts != null && timeParts.length > 1 : "Time parts should contain start and end times";
+
         String endTimeAndPriority = timeParts[1];
 
         if (eventTask.isEmpty()) {
@@ -105,6 +116,8 @@ public class Event extends Task {
      * @throws TaskException If the time the event ends is before the time it starts.
      */
     private static void validateEventTimes(LocalDateTime startTime, LocalDateTime endTime) throws TaskException {
+        assert startTime != null && endTime != null : "Start and end times should not be null";
+
         if (endTime.isBefore(startTime)) {
             throw new TaskException("Are you a time traveler cos an end time cannot be before a start time!");
         }
@@ -117,6 +130,9 @@ public class Event extends Task {
      */
     @Override
     public String toString() {
+        assert startTime != null : "Start time should not be null before formatting";
+        assert endTime != null : "End time should not be null before formatting";
+
         return "[E]" + super.toString()
                 + " (from: "
                 + startTime.format(OUTPUT_FORMATTER)
