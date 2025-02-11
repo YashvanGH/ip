@@ -144,11 +144,12 @@ public class TaskDateTimeParser {
     }
 
     /**
+     * Extracts description from line input.
      *
-     *
+     * @param line The line it extracts the description from.
+     * @return The extracted description.
      */
     private static String extractDescription(String line) {
-        // Extract description
         int startOfDescription = line.indexOf("] ") + 2;
         int endOfDescription = line.indexOf(" (Priority:");
         String description = line.substring(startOfDescription, endOfDescription).trim();
@@ -157,11 +158,12 @@ public class TaskDateTimeParser {
     }
 
     /**
+     * Extracts priority from line input.
      *
-     *
+     * @param line The line it extracts the priority from.
+     * @return The extracted priority.
      */
     private static String extractPriority(String line) {
-        // Extract priority
         int startOfPriority = line.indexOf("(Priority:") + 10;
         int endOfPriority = line.indexOf(")", startOfPriority);
         String priority = line.substring(startOfPriority, endOfPriority).trim().toUpperCase();

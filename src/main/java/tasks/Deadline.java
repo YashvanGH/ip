@@ -26,6 +26,11 @@ public class Deadline extends Task {
      */
     private Deadline(String description, LocalDateTime deadline, TaskPriority taskPriority) {
         super(description, taskPriority);
+
+        assert description != null && !description.isBlank() : "Description should not be null or blank";
+        assert deadline != null : "Deadline should not be null";
+        assert taskPriority != null : "TaskPriority should not be null";
+
         this.deadline = deadline;
     }
 
@@ -38,6 +43,8 @@ public class Deadline extends Task {
      * @throws TaskException If the input format is invalid.
      */
     public static Deadline create(String input) throws TaskException {
+        assert input != null && !input.isBlank() : "Input should not be null or empty";
+
         String[] parts = input.split(" /by ");
 
         if (parts.length < 2) {
@@ -61,6 +68,7 @@ public class Deadline extends Task {
 
         TaskPriority taskPriority;
         try {
+            assert deadlineParts.length > 1 : "Missing priority, default to LOW";
             taskPriority = (deadlineParts.length > 1)
                     ? TaskPriority.valueOf(deadlineParts[1].toUpperCase())
                     : TaskPriority.LOW;
@@ -78,6 +86,7 @@ public class Deadline extends Task {
      */
     @Override
     public String toString() {
+        assert deadline != null : "Deadline should not be null before formatting";
         return "[D]" + super.toString()
                 + " (by: " + this.deadline.format(OUTPUT_FORMATTER) + ")";
     }

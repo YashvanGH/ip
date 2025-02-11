@@ -31,10 +31,13 @@ public class TaskManager {
      * @param task The task to add to the list.
      */
     public String addTask(Task task) throws TaskException, IOException {
+        assert task != null : "Task should not be null";
+
         if (task.isEmpty()) {
             throw new TaskException("Hey! The description of your tasks cannot be empty!");
         } else {
             taskList.add(task);
+            assert taskList.contains(task) : "Tasklist should have task after adding it";
 
             return "______________________________________________________________________________________\n"
                     + "I've added this to tasks:\n"
@@ -51,6 +54,8 @@ public class TaskManager {
      * @throws TaskException If the task list is empty or the index is invalid.
      */
     private String deleteTask(int index) throws TaskException {
+        assert taskList != null : "Task list should not be null";
+
         if (taskList.isEmpty()) {
             throw new TaskException("Can't delete work if you don't have work to do!");
         }
@@ -60,6 +65,7 @@ public class TaskManager {
         }
 
         Task removedTask = taskList.remove(index);
+
         return "______________________________________________________________________________________\n"
                 + "I've removed this from tasks:\n"
                 + removedTask
@@ -75,7 +81,11 @@ public class TaskManager {
      * @throws NumberFormatException If the task number is missing, empty, or invalid.
      * @throws TaskException         If the task list is empty or the task number is invalid.
      */
-    public static String deleteTask(String input, TaskManager taskManager) throws NumberFormatException, TaskException {
+    public static String deleteTask(String input, TaskManager taskManager)
+            throws NumberFormatException, TaskException {
+        assert input != null && !input.isBlank() : "Input should not be null or empty";
+        assert taskManager != null : "TaskManager should not be null";
+
         if (input.length() <= 7) {
             throw new NumberFormatException("Boh... Use: delete <task_number>");
         }
@@ -101,18 +111,18 @@ public class TaskManager {
      * @param index The index at which the task should be marked as done.
      */
     private String markTask(int index) throws MarkException, TaskException {
-        // Check if the task list is empty
+        assert taskList != null : "Task list should not be null";
+
         if (taskList.isEmpty()) {
             throw new MarkException("You have no tasks to mark. Look's like someone's lazing around!");
         }
 
-        // Check if the index is within bounds
         if (index < 0 || index >= taskList.size()) {
             throw new MarkException("I don't know if you've noticed BUT we don't have that many tasks!");
         }
 
-        // Mark the task as done
         taskList.get(index).markTask();
+
         return "Nice! I've marked task " + (index + 1) + " as done!\n" + displayList();
     }
 
@@ -126,8 +136,11 @@ public class TaskManager {
      * @throws MarkException         If the specified task does not exist.
      * @throws TaskException         For other task-related errors.
      */
-    public static String markTask(String input, TaskManager taskManager) throws NumberFormatException, MarkException,
-            TaskException, IOException {
+    public static String markTask(String input, TaskManager taskManager)
+            throws NumberFormatException, MarkException, TaskException, IOException {
+        assert input != null && !input.isBlank() : "Input should not be null or empty";
+        assert taskManager != null : "Task Manager should not be null";
+
         if (input.length() <= 5) {
             throw new NumberFormatException("Boh... Use: mark <task_number>");
         }
@@ -151,18 +164,18 @@ public class TaskManager {
      * @param index The index at which the task should be marked as undone.
      */
     private String unmarkTask(int index) throws MarkException, TaskException {
-        // Check if the task list is empty
+        assert taskList != null : "Task list should not be null";
+
         if (taskList.isEmpty()) {
             throw new MarkException("You have no tasks to unmark. Look's like someone's lazing around!");
         }
 
-        // Check if the index is within bounds
         if (index < 0 || index >= taskList.size()) {
             throw new MarkException("I don't know if you've noticed BUT we don't have that many tasks!");
         }
 
-        // Mark task as undone
         taskList.get(index).unmarkTask();
+
         return "An uno reverse? Task " + (index + 1) + " has been unmarked!\n" + displayList();
     }
 
@@ -176,8 +189,11 @@ public class TaskManager {
      * @throws MarkException         If the specified task does not exist.
      * @throws TaskException         For other task-related errors.
      */
-    public static String unmarkTask(String input, TaskManager taskManager) throws NumberFormatException, MarkException,
-            TaskException {
+    public static String unmarkTask(String input, TaskManager taskManager)
+            throws NumberFormatException, MarkException, TaskException {
+        assert input != null && !input.isBlank() : "Input should not be null or empty";
+        assert taskManager != null : "Task Manager should not be null";
+
         if (input.length() <= 7) {
             throw new NumberFormatException("Boh... Use: unmark <task_number>");
         }
@@ -198,6 +214,8 @@ public class TaskManager {
      * Display all current tasks in the list.
      */
     public String displayList() throws TaskException {
+        assert taskList != null : "Task list should not be null";
+
         if (this.taskList.isEmpty()) {
             throw new TaskException("Yo! You have nothing in your task list (for now)");
         }
@@ -229,17 +247,17 @@ public class TaskManager {
         while (s.hasNextLine()) {
             String line = s.nextLine().trim();
 
-            // Skip empty lines
             if (line.isEmpty()) {
                 continue;
             }
 
             Task task = parseTask(line);
             if (task != null) {
-                // Only get unmarked tasks
+                // This gets only get unmarked tasks by only adding not 'null' tasks
                 taskList.add(task);
             }
         }
+        s.close();
     }
 
     /**
@@ -250,12 +268,11 @@ public class TaskManager {
      */
     private Task parseTask(String line) {
         try {
-            // [T][ ] read (Priority: Low)
             String taskType = line.substring(1, 2);
             boolean isDone = line.charAt(4) == 'X';
 
             if (isDone) {
-                // Do not load this task
+                // This is so that it is not loaded into the tasklist in loadTasks()
                 return null;
             }
 
@@ -267,7 +284,6 @@ public class TaskManager {
                 String todoInput = "todo " + description + " /priority " + todoPriority.toUpperCase();
                 return Todo.create(todoInput);
             case "D": // Deadline
-                //[D][ ] play (Priority: Low) (by: 2 March 2014, 6:00pm)
                 String deadlineInput = TaskDateTimeParser.deadlineParser(line);
                 return Deadline.create(deadlineInput);
             case "E": // Event
@@ -275,8 +291,8 @@ public class TaskManager {
                 return Event.create(eventInput);
             default:
                 return null;
-
             }
+
         } catch (TaskException e) {
             System.out.println(
                     "\t______________________________________________________________________________________\n"
@@ -284,7 +300,7 @@ public class TaskManager {
                     + "\n\t______________________________________________________________________________________\n"
             );
         }
-        // This line should never be reached
+
         return null;
     }
 
