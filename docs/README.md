@@ -9,7 +9,7 @@ Anyways! Here's what I can do for you:
 - Add tasks without dates (todo)
 - Add deadlines with specific due dates (deadline)
 - Schedule events with start and end times (event)
-- Track and manage your tasks with ease (list, mark, unmark, delete, save)
+- Track and manage your tasks with ease (list, mark, unmark, delete, save, find)
 
 ## Features
 
@@ -93,6 +93,13 @@ Example:
 
 Expected Outcome:
 Task number 2 will be marked as incomplete.
+
+### Finding Tasks
+Finds a specific task.
+
+Usage: ```find <description>```
+
+Expected Outcome: Finds all the tasks with a matching description.
 
 ### Exiting the Application:
 Say your goodbyes guys!

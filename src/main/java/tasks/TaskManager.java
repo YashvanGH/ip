@@ -97,7 +97,7 @@ public class TaskManager {
 
         int indexToDelete;
         try {
-            indexToDelete = Integer.parseInt(numberString) - 1; // Parsing the number
+            indexToDelete = Integer.parseInt(numberString) - 1;
         } catch (NumberFormatException e) {
             throw new NumberFormatException("Does that look like a number to you bruh? Enter a valid number!");
         }
@@ -144,10 +144,12 @@ public class TaskManager {
         if (input.length() <= 5) {
             throw new NumberFormatException("Boh... Use: mark <task_number>");
         }
+
         String numberString = input.substring(5).trim();
         if (numberString.isEmpty()) {
             throw new NumberFormatException("Boh... Use: mark <task_number>");
         }
+
         int indexToMark;
         try {
             indexToMark = Integer.parseInt(input.substring(5)) - 1;
@@ -227,6 +229,7 @@ public class TaskManager {
             sb.append((i + 1)).append(": ").append(taskList.get(i)).append("\n");
         }
         sb.append("______________________________________________________________________________________\n");
+
         return sb.toString();
     }
 
@@ -276,7 +279,7 @@ public class TaskManager {
                 return null;
             }
 
-            // Parsing input to allow creation of subtypes of Task objects
+            // This is to allow parsing of input to allow creation of subtypes of Task objects
             String description = line.substring(line.indexOf("[ ]") + 4, line.indexOf("(Priority:")).trim();
             switch (taskType) {
             case "T": // Todo
@@ -332,7 +335,6 @@ public class TaskManager {
         }
 
         String description = input.substring(5).trim();
-
         if (description.isEmpty()) {
             throw new TaskException("Watchu trying to find? The lost ark? Enter a description!");
         }
@@ -355,6 +357,7 @@ public class TaskManager {
             sb.append((i + 1)).append(": ").append(foundTasks.get(i)).append("\n");
         }
         sb.append("______________________________________________________________________________________\n");
+
         return sb.toString();
     }
 }

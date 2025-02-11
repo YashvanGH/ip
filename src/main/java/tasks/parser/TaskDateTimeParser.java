@@ -23,21 +23,17 @@ public class TaskDateTimeParser {
         String description = extractDescription(line);
         String priority = extractPriority(line);
 
-        // Extract deadline
         int startOfDeadline = line.indexOf("(by:") + 5;
         int endOfDeadline = line.lastIndexOf(")");
         String deadlineRaw = line.substring(startOfDeadline, endOfDeadline).trim();
 
-        // Parse the date and time
         String[] deadlineParts = deadlineRaw.split(",");
         String datePart = deadlineParts[0].trim();
         String timePart = deadlineParts[1].trim();
 
-        // Convert date to "D/M/YYYY"
         String[] dateSplit = datePart.split(" ");
         String formattedDate = dateSplit[0] + "/" + convertMonthToNumber(dateSplit[1]) + "/" + dateSplit[2];
 
-        // Convert time to "HHmm"
         String formattedTime = convertTo24HourFormat(timePart);
 
         String deadlineInput = "deadline " + description + " /by " + formattedDate + " " + formattedTime
@@ -56,22 +52,18 @@ public class TaskDateTimeParser {
         String description = extractDescription(line);
         String priority = extractPriority(line);
 
-        // Extract "from" time
         int startOfFrom = line.indexOf("(from:") + 7;
         int endOfFrom = line.indexOf("to:", startOfFrom) - 1;
         String from = line.substring(startOfFrom, endOfFrom).trim();
 
-        // Format start date and time
         String[] fromParts = from.split(", ");
         String startDate = convertToDate(fromParts[0]);
         String startTime = convertTo24HourFormat(fromParts[1]);
 
-        // Extract "to" time
         int startOfTo = line.indexOf("to:") + 4;
         int endOfTo = line.lastIndexOf(")");
         String to = line.substring(startOfTo, endOfTo).trim();
 
-        // Format end date and time
         String[] toParts = to.split(", ");
         String endDate = convertToDate(toParts[0]);
         String endTime = convertTo24HourFormat(toParts[1]);
@@ -114,8 +106,8 @@ public class TaskDateTimeParser {
      */
     private static String convertTo24HourFormat(String time) {
         boolean isPM = time.toLowerCase().endsWith("pm");
-        // This gets hours and minutes from 12-hour format
         String[] timeParts = time.substring(0, time.length() - 2).trim().split(":");
+
         int hours = Integer.parseInt(timeParts[0]);
         int minutes = Integer.parseInt(timeParts[1]);
 

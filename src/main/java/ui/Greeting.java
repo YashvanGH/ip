@@ -9,7 +9,9 @@ package ui;
 public class Greeting {
 
     /**
-     * Introduces itself and greets the user
+     * Introduces itself and greets the user.
+     *
+     * @return An introduction of the bot.
      */
     public static String greet() {
         return "__________________________________________________\n"
@@ -19,7 +21,9 @@ public class Greeting {
     }
 
     /**
-     * Lists out the current functions that can be used by the user
+     * Lists out the current functions that can be used by the user.
+     *
+     * @return The various functions with a specified format that the user can use.
      */
     public static String help() {
         return "Here's what I can do for now!\n"
@@ -33,14 +37,5 @@ public class Greeting {
                 + "| mark <task number>: Marks task no.x as done\n"
                 + "| unmark <task number>: Unmarks task no.x\n"
                 + "| exit: Exits the application";
-    }
-
-    /**
-     * Exits the application and greets the user goodbye
-     */
-    public static String sayGoodbye() {
-        return "______________________________________________________________________________________\n"
-                + "\t Aight, I'll head out. Do your tasks! Remember... I'm watching you.\n"
-                + "______________________________________________________________________________________";
     }
 }
