@@ -18,6 +18,9 @@ public class Todo extends Task {
      */
     private Todo(String description, TaskPriority taskPriority) {
         super(description, taskPriority);
+
+        assert description != null && !description.isBlank() : "Description should not be null or empty";
+        assert taskPriority != null : "TaskPriority should not be null";
     }
 
     /**
@@ -29,6 +32,8 @@ public class Todo extends Task {
      * @throws TaskException If the input format is invalid.
      */
     public static Todo create(String input) throws TaskException {
+        assert input != null && !input.isBlank() : "Input should not be null or empty";
+
         String[] parts = input.split(" /priority ");
         String todoTask = parts[0].substring(4).trim();
         if (todoTask.isEmpty()) {
@@ -37,6 +42,7 @@ public class Todo extends Task {
 
         TaskPriority taskPriority;
         try {
+            assert parts.length > 1 : "Missing priority, defaulting to LOW";
             taskPriority = parts.length > 1 ? TaskPriority.valueOf(parts[1].toUpperCase()) : TaskPriority.LOW;
         } catch (IllegalArgumentException e) {
             throw new TaskException("Get your priorities in order! Use: LOW, MEDIUM, HIGH, or URGENT!");

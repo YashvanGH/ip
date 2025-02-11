@@ -138,7 +138,6 @@ public class TaskDateTimeParser {
     /**
      * Extracts description from line input.
      *
-     *
      * @param line The line it extracts the description from.
      * @return The extracted description.
      */
@@ -152,7 +151,6 @@ public class TaskDateTimeParser {
 
     /**
      * Extracts priority from line input.
-     *
      *
      * @param line The line it extracts the priority from.
      * @return The extracted priority.

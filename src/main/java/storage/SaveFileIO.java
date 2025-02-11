@@ -23,13 +23,15 @@ public class SaveFileIO {
      * @throws IOException If tyrese.txt cannot be written to.
      */
     public static void writeToSaveFile(ArrayList<Task> taskList) throws IOException {
+        assert taskList != null: "Task List should not be null";
         File file = getFile();
 
         FileWriter fw;
         try {
             fw = new FileWriter(file);
             for (Task task : taskList) {
-                fw.write(task.toString() + System.lineSeparator());
+                assert task != null : "Task should not be null";
+                fw.write(task + System.lineSeparator());
             }
         } catch (IOException e) {
             throw new IOException("Sorry mans, I can't write to the savedata file");
@@ -52,11 +54,14 @@ public class SaveFileIO {
         if (!directory.exists() && !directory.mkdirs()) {
             throw new IOException("Sorry mans, I can't create the savedata directory...");
         }
+        assert directory.exists() : "Directory should exist after mkdirs()";
 
         // This ensures file exists by attempting to create it
         if (!file.exists() && !file.createNewFile()) {
             throw new IOException("Sorry mans, I can't create the savedata file...");
         }
+        assert file.exists() : "File should exist after createNewFile()";
+
         return file;
     }
 }
