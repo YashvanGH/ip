@@ -63,7 +63,8 @@ public abstract class Task {
      */
     @Override
     public String toString() {
-        return "[" + (isDone ? "X" : " ") + "] " + this.description
+        return "[" + (isDone ? "X" : " ") + "] "
+                + this.description
                 + " (Priority: " + this.taskPriority.getDisplayName() + ")";
     }
 

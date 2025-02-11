@@ -61,17 +61,14 @@ public class MainWindow {
             boolean[] isRun = { true };
             String response = UserCommandParser.parseCommand(input, taskManager, isRun);
 
-            // Add user input and bot response to the chat UI
             dialogContainer.getChildren().addAll(
-                    DialogBox.getUserDialog(input, userImage), // User's message
-                    DialogBox.getTyreseDialog(response, botImage) // Bot's response
+                    DialogBox.getUserDialog(input, userImage),
+                    DialogBox.getTyreseDialog(response, botImage)
             );
 
-            // Clear input field
             userInput.clear();
         }
 
-        // Try to save unmarked tasks
         try {
             taskManager.saveUnmarkedTasks();
         } catch (IOException e) {

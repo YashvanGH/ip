@@ -37,7 +37,6 @@ public class Todo extends Task {
 
         TaskPriority taskPriority;
         try {
-            // Just checking if a priority has been assigned else label it as LOW priority
             taskPriority = parts.length > 1 ? TaskPriority.valueOf(parts[1].toUpperCase()) : TaskPriority.LOW;
         } catch (IllegalArgumentException e) {
             throw new TaskException("Get your priorities in order! Use: LOW, MEDIUM, HIGH, or URGENT!");

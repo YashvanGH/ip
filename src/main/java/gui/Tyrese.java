@@ -39,7 +39,6 @@ public class Tyrese extends Application {
 
             stage.show();
 
-            // Try to load tasks to populate the task list
             try {
                 taskManager.loadTasks();
             } catch (IOException e) {
