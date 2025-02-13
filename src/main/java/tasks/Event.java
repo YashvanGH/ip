@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 import exceptions.TaskException;
+import tasks.priority.TaskPriority;
 
 /**
  * This class represents a task with a more specific deadline.

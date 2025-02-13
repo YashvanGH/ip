@@ -1,4 +1,8 @@
-package tasks;
+package tasks.priority;
+
+import tasks.Deadline;
+import tasks.Event;
+import tasks.Todo;
 
 /**
  * This enums represents TaskPriority.

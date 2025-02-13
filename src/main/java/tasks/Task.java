@@ -1,5 +1,7 @@
 package tasks;
 
+import tasks.priority.TaskPriority;
+
 /**
  * This abstract class represents a task.
  * It is inherited by {@link Todo}, {@link Deadline} and {@link Event}.
