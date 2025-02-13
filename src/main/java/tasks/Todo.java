@@ -1,6 +1,7 @@
 package tasks;
 
 import exceptions.TaskException;
+import tasks.priority.TaskPriority;
 
 /**
  * This class represents a class with no deadline.
