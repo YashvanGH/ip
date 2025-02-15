@@ -69,7 +69,6 @@ public class Event extends Task {
 
         TaskPriority taskPriority;
         try {
-            assert endTimePriority.length > 1 : "Missing priority, defaulting to LOW";
             taskPriority = (endTimePriority.length > 1)
                     ? TaskPriority.valueOf(endTimePriority[1].toUpperCase())
                     : TaskPriority.LOW;

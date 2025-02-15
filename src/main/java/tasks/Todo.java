@@ -43,7 +43,6 @@ public class Todo extends Task {
 
         TaskPriority taskPriority;
         try {
-            assert parts.length > 1 : "Missing priority, defaulting to LOW";
             taskPriority = parts.length > 1 ? TaskPriority.valueOf(parts[1].toUpperCase()) : TaskPriority.LOW;
         } catch (IllegalArgumentException e) {
             throw new TaskException("Get your priorities in order! Use: LOW, MEDIUM, HIGH, or URGENT!");
