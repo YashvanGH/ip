@@ -213,7 +213,7 @@ public class TaskManager {
     }
 
     /**
-     * Display all current tasks in the list.
+     * Displays all current tasks in the list.
      */
     public String displayList() throws TaskException {
         assert taskList != null : "Task list should not be null";
