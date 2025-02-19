@@ -11,6 +11,11 @@ Anyways! Here's what I can do for you:
 - Schedule events with start and end times (event)
 - Track and manage your tasks with ease (list, mark, unmark, delete, save, find)
 
+### Note:
+- When opening the bot, drag the window slightly and it will auto adjust to its correct width!
+- The priority command is optional
+  - If no value is provided, it will default to LOW
+
 ---
 
 ## Features
@@ -18,7 +23,7 @@ Anyways! Here's what I can do for you:
 Add a task without a specific date or time.
 
 Usage:
-`todo <description>`
+`todo <description> /priority <LOW|MEDIUM|HIGH|URGENT>`
 
 Example:
 `todo Buy groceries`
@@ -32,7 +37,7 @@ A new task "Buy groceries" will be added to your list.
 Add a task with a specific due date.
 
 Usage:
-`deadline <description> /by <due date>`
+`deadline <description> /by <D/M/YYYY> /priority <LOW|MEDIUM|HIGH|URGENT>`
 
 Example:
 `deadline Submit assignment /by 25/1/2025`
@@ -46,11 +51,11 @@ A new task "Submit assignment" with a due date of 25th January 2025 will be adde
 Add an event with a start and end time.
 
 Usage:
-`event <description> /from <start date/time> /to <end date/time>`
+`event <description> /from <D/M/YYYY HHmm> /to <D/M/YYYY HHmm> /priority <LOW|MEDIUM|HIGH|URGENT>`
 
 Example:
 `event Project meeting /from 21/1/2025 1000 /to 21/1/2025 1200`
-`
+
 Expected Outcome:
 A new event "Project meeting" scheduled from 10:00 to 12:00 on 21st January 2025 will be added to your list.
 
