@@ -24,8 +24,6 @@ public class MainWindow {
     private VBox dialogContainer;
     @FXML
     private TextField userInput;
-    @FXML
-    private Button sendButton;
 
     private Image userImage = new Image(this.getClass().getResourceAsStream("/images/samurai_doge.png"));
     private Image botImage = new Image(this.getClass().getResourceAsStream("/images/gigachad.png"));

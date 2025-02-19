@@ -1,5 +1,5 @@
 # Tyrese User Guide
-// Product screenshot goes here
+![Ui.png](Ui.png)
 
 ## Introduction
 What's going on, guys? Tyrese Here!
@@ -10,7 +10,7 @@ Anyways! Here's what I can do for you:
 - Add deadlines with specific due dates (deadline)
 - Schedule events with start and end times (event)
 - Track and manage your tasks with ease (list, mark, unmark, delete, save, find)
-
+---
 ## Features
 
 ### Adding Todos
@@ -24,7 +24,7 @@ Example:
 
 Expected Outcome:
 A new task "Buy groceries" will be added to your list.
-
+---
 ### Adding Deadlines
 Add a task with a specific due date.
 
@@ -32,11 +32,11 @@ Usage:
 `deadline <description> /by <due date>`
 
 Example:
-`deadline Submit assignment /by 2025-01-25`
+`deadline Submit assignment /by 25/1/2025`
 
 Expected Outcome:
 A new task "Submit assignment" with a due date of 25th January 2025 will be added to your list.
-
+---
 ### Adding Events
 Add an event with a start and end time.
 
@@ -44,11 +44,11 @@ Usage:
 `event <description> /from <start date/time> /to <end date/time>`
 
 Example:
-`event Project meeting /from 2025-01-21 1000 /to 2025-01-21 1200`
+`event Project meeting /from 21/1/2025 1000 /to 21/1/2025 1200`
 `
 Expected Outcome:
 A new event "Project meeting" scheduled from 10:00 to 12:00 on 21st January 2025 will be added to your list.
-
+---
 ### Deleting Tasks
 Delete a task from task list.
 
@@ -60,7 +60,7 @@ Example:
 
 Expected Outcome:
 The task at the specified index will be deleted and the list will be updated accordingly.
-
+---
 ### Viewing Your Tasks
 Display all your tasks in a list format.
 
@@ -69,7 +69,7 @@ Usage:
 
 Expected Outcome:
 A list of all your tasks, deadlines, and events will be displayed, showing their status (done or not done).
-
+---
 ### Marking Tasks as Done
 Mark a specific task as completed.
 
@@ -81,7 +81,7 @@ Example:
 
 Expected Outcome:
 Task number 2 will be marked as done and will not be saved to save file.
-
+---
 ### Unmarking Tasks
 Unmark a specific task as incomplete.
 
@@ -93,7 +93,7 @@ Example:
 
 Expected Outcome:
 Task number 2 will be marked as incomplete.
-
+---
 ### Finding Tasks
 Finds a specific task.
 
@@ -101,6 +101,7 @@ Usage: ```find <description>```
 
 Expected Outcome: Finds all the tasks with a matching description.
 
+---
 ### Exiting the Application:
 Say your goodbyes guys!
 

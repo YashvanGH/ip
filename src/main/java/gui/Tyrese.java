@@ -25,7 +25,8 @@ public class Tyrese extends Application {
             AnchorPane root = fxmlLoader.load();
             Scene scene = new Scene(root);
 
-            stage.setMaximized(true);
+            stage.setMinHeight(800);
+            stage.setMinWidth(1200);
             stage.setTitle("Tyrese Task Manager");
             stage.setScene(scene);
 
