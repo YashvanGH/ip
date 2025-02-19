@@ -125,4 +125,4 @@ Usage:
 `exit`
 
 Expected Outcome:
-The application will close.
+The application will close out.
