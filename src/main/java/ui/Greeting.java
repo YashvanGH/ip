@@ -1,7 +1,5 @@
 package ui;
 
-import javafx.application.Platform;
-
 /**
  * This class represents an interaction between the user and system.
  * It greets the user when starting up and bids goodbye when done.
