@@ -70,9 +70,7 @@ public class UserCommandParser {
                 return taskManager.findTasks(input);
 
             } else {
-                return "______________________________________________________________________________________\n"
-                        + "Whatchu talking about bruh? Type 'help' if you need it!"
-                        + "\n______________________________________________________________________________________\n";
+                return Greeting.callForHelp();
             }
         } catch (NumberFormatException | MarkException | TaskException | IOException e) {
             return "______________________________________________________________________________________\n"

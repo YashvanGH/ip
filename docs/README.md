@@ -44,7 +44,7 @@ Usage:
 `event <description> /from <start date/time> /to <end date/time>`
 
 Example:
-`event Project meeting /from 2025-01-21 10:00 /to 2025-01-21 12:00`
+`event Project meeting /from 2025-01-21 1000 /to 2025-01-21 1200`
 `
 Expected Outcome:
 A new event "Project meeting" scheduled from 10:00 to 12:00 on 21st January 2025 will be added to your list.

@@ -25,28 +25,23 @@ public class Tyrese extends Application {
             AnchorPane root = fxmlLoader.load();
             Scene scene = new Scene(root);
 
-            // Set up the stage
             stage.setMaximized(true);
             stage.setTitle("Tyrese Task Manager");
             stage.setScene(scene);
 
-            // Pass TaskManager instance to MainWindow controller
             MainWindow controller = fxmlLoader.getController();
             controller.setTaskManager(taskManager);
 
             stage.show();
 
-            try {
-                taskManager.loadTasks();
-            } catch (IOException e) {
-                System.out.println(
-                        "\t______________________________________________________________________________________\n"
-                        + "\t " + e.getMessage()
-                        + "\n\t______________________________________________________________________________________\n"
-                );
-            }
+            taskManager.loadTasks();
+
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(
+                    "\t______________________________________________________________________________________\n"
+                            + "\t " + e.getMessage()
+                            + "\n\t______________________________________________________________________________________\n"
+            );
         }
     }
 }

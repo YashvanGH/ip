@@ -1,5 +1,7 @@
 package ui;
 
+import javafx.application.Platform;
+
 /**
  * This class represents an interaction between the user and system.
  * It greets the user when starting up and bids goodbye when done.
@@ -24,5 +26,16 @@ public class Greeting {
                 + "| mark <task number>: Marks task no.x as done\n"
                 + "| unmark <task number>: Unmarks task no.x\n"
                 + "| exit: Exits the application";
+    }
+
+    /**
+     * Shows a help command if the user enters the wrong or unknown command.
+     *
+     * @return The command to type for 'help'.
+     */
+    public static String callForHelp() {
+        return "______________________________________________________________________________________\n"
+                + "Whatchu talking about bruh? Type 'help' if you need it!"
+                + "\n______________________________________________________________________________________\n";
     }
 }

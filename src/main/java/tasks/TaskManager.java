@@ -347,7 +347,7 @@ public class TaskManager {
         }
 
         if (foundTasks.isEmpty()) {
-            return "Weird... It's almost as if that task doesn't exist...";
+            throw new TaskException("Weird... It's almost as if that task doesn't exist...");
         }
 
         StringBuilder sb = new StringBuilder();
