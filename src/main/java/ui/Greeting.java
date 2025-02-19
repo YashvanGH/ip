@@ -7,19 +7,6 @@ package ui;
  * @author Yashvan
  */
 public class Greeting {
-
-    /**
-     * Introduces itself and greets the user.
-     *
-     * @return An introduction of the bot.
-     */
-    public static String greet() {
-        return "__________________________________________________\n"
-                + "\t\t\tIt's ya boi Tyrese!\n"
-                + "\t    Type 'help' to see what I can do! \n"
-                + "__________________________________________________\n";
-    }
-
     /**
      * Lists out the current functions that can be used by the user.
      *

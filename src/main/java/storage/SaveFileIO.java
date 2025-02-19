@@ -23,7 +23,7 @@ public class SaveFileIO {
      * @throws IOException If tyrese.txt cannot be written to.
      */
     public static void writeToSaveFile(ArrayList<Task> taskList) throws IOException {
-        assert taskList != null: "Task List should not be null";
+        assert taskList != null : "Task List should not be null";
         File file = getFile();
 
         FileWriter fw;

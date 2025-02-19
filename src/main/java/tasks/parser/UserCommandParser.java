@@ -34,10 +34,7 @@ public class UserCommandParser {
         assert isRun != null && isRun.length > 0 : "isRun should be a valid boolean array";
 
         try {
-            if (input.equals("hi")) {
-                return Greeting.greet();
-
-            } else if (input.equals("exit")) {
+            if (input.equals("exit")) {
                 isRun[0] = false;
                 Platform.exit();
                 return "";

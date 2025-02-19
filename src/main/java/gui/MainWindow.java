@@ -39,7 +39,14 @@ public class MainWindow {
     public void initialize() {
         // Automatically scrolls to the latest message
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
-        userInput.setPromptText("Type 'hi' or 'help' to start!");
+
+        dialogContainer.getChildren().add(
+                DialogBox.getTyreseDialog(
+                        "__________________________________________________\n"
+                        + "\t\t\tIt's ya boi Tyrese!\n"
+                        + "\t    Type 'help' to see what I can do! \n"
+                        + "__________________________________________________\n", botImage)
+        );
     }
 
     /**

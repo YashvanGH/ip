@@ -69,7 +69,6 @@ public class Deadline extends Task {
 
         TaskPriority taskPriority;
         try {
-            assert deadlineParts.length > 1 : "Missing priority, default to LOW";
             taskPriority = (deadlineParts.length > 1)
                     ? TaskPriority.valueOf(deadlineParts[1].toUpperCase())
                     : TaskPriority.LOW;
