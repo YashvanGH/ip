@@ -10,10 +10,8 @@ Anyways! Here's what I can do for you:
 - Add deadlines with specific due dates (deadline)
 - Schedule events with start and end times (event)
 - Track and manage your tasks with ease (list, mark, unmark, delete, save, find)
----
 
 ## Features
-
 ### Adding Todos
 Add a task without a specific date or time.
 
