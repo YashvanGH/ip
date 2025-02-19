@@ -11,6 +11,8 @@ Anyways! Here's what I can do for you:
 - Schedule events with start and end times (event)
 - Track and manage your tasks with ease (list, mark, unmark, delete, save, find)
 
+---
+
 ## Features
 ### Adding Todos
 Add a task without a specific date or time.
@@ -23,7 +25,9 @@ Example:
 
 Expected Outcome:
 A new task "Buy groceries" will be added to your list.
+
 ---
+
 ### Adding Deadlines
 Add a task with a specific due date.
 
@@ -35,7 +39,9 @@ Example:
 
 Expected Outcome:
 A new task "Submit assignment" with a due date of 25th January 2025 will be added to your list.
+
 ---
+
 ### Adding Events
 Add an event with a start and end time.
 
@@ -47,7 +53,9 @@ Example:
 `
 Expected Outcome:
 A new event "Project meeting" scheduled from 10:00 to 12:00 on 21st January 2025 will be added to your list.
+
 ---
+
 ### Deleting Tasks
 Delete a task from task list.
 
@@ -59,7 +67,9 @@ Example:
 
 Expected Outcome:
 The task at the specified index will be deleted and the list will be updated accordingly.
+
 ---
+
 ### Viewing Your Tasks
 Display all your tasks in a list format.
 
@@ -68,7 +78,9 @@ Usage:
 
 Expected Outcome:
 A list of all your tasks, deadlines, and events will be displayed, showing their status (done or not done).
+
 ---
+
 ### Marking Tasks as Done
 Mark a specific task as completed.
 
@@ -80,7 +92,9 @@ Example:
 
 Expected Outcome:
 Task number 2 will be marked as done and will not be saved to save file.
+
 ---
+
 ### Unmarking Tasks
 Unmark a specific task as incomplete.
 
@@ -92,7 +106,9 @@ Example:
 
 Expected Outcome:
 Task number 2 will be marked as incomplete.
+
 ---
+
 ### Finding Tasks
 Finds a specific task.
 
@@ -101,6 +117,7 @@ Usage: ```find <description>```
 Expected Outcome: Finds all the tasks with a matching description.
 
 ---
+
 ### Exiting the Application:
 Say your goodbyes guys!
 
