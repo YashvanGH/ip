@@ -239,8 +239,14 @@ public class TaskManager {
      * @throws IOException If the file cannot be found or does not exist.
      */
     public void loadTasks() throws IOException {
-        File file = new File(System.getProperty("user.dir") + File.separator + "savedata"
-                + File.separator + "tyrese.txt");
+        File directory = new File(System.getProperty("user.dir") + File.separator + "savedata");
+        if (!directory.exists()) {
+            if (!directory.mkdirs()) {
+                throw new IOException("Failed to create directory: " + directory.getAbsolutePath());
+            }
+        }
+
+        File file = new File(directory, "tyrese.txt");
 
         if (!file.exists() && !file.createNewFile()) {
             throw new IOException("You have no saved tasks! Imma initialise a new list!");
