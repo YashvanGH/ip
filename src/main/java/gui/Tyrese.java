@@ -35,19 +35,14 @@ public class Tyrese extends Application {
 
             stage.show();
 
-            try {
-                taskManager.loadTasks();
-            } catch (IOException e) {
-                System.out.println(
-                        "\t______________________________________________________________________________________\n"
-                        + "\t gabba"
-                        + "\n\t______________________________________________________________________________________\n"
-                );
-            }
-
+            taskManager.loadTasks();
 
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(
+                    "\t______________________________________________________________________________________\n"
+                    + "\t " + e.getMessage()
+                    + "\n\t______________________________________________________________________________________\n"
+            );
         }
     }
 }
